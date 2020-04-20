@@ -14,15 +14,13 @@
 
 			<p>{{description}}</p>
 
-			<p>公開日時: <time datetime="{{strYear}}-{{strMonth}}-{{strDate}}T{{strHour}}:{{strMinute}}:{{strSecond}}+09:00">{{year}}年{{month}}月{{date}}日</time></p>
-
 			<nav>
 				<ol>
 					{{#sections}}
-						<li><a href="#{{id}}">{{title}}</a>
+						<li><a href="#{{id}}">{{{title}}}</a>
 							<ol>
 								{{#practices}}
-									<li><a href="#{{id}}">{{title}}</a></li>
+									<li><a href="#{{id}}">{{{title}}}</a></li>
 								{{/practices}}
 							</ol>
 						</li>
@@ -38,9 +36,9 @@
 
 					{{#practices}}
 						<section id="{{id}}">
-							<h2>{{title}}</h2>
+							<h2>{{{title}}}</h2>
 
-							{{body}}
+							{{{body}}}
 						</section>
 					{{/practices}}
 				</section>

@@ -4,6 +4,7 @@
   "description": "保守しやすく、規模に依存しないHTML文書のために",
   "main": "index.js",
   "scripts": {
+		"build": "node index.js",
     "test": "eslint index.js"
   },
   "repository": {

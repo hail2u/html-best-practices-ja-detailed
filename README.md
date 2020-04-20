@@ -1,5 +1,4 @@
-普通のHTMLの書き方
-==================
+# 普通のHTMLの書き方
 
 保守しやすく、規模に依存しないHTML文書のために
 
@@ -106,17 +105,6 @@
     - [外部リソースにはプロトコル相対URLを使わない](dont-use-protocol-relative-url-for-external-resources.md)
 
 
-寄稿者
-------
+## ライセンス
 
-[@hail2u]
-
-
-ライセンス
-----------
-
-[CC0]
-
-
-[@hail2u]: https://github.com/hail2u
-[CC0]:     http://creativecommons.org/publicdomain/zero/1.0/
+[CC0](http://creativecommons.org/publicdomain/zero/1.0/)

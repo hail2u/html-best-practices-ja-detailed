@@ -6,7 +6,20 @@
 {{#sections}}
 - {{{strTitle}}}
 {{#practices}}
-    - [{{{strTitle}}}]({{{id}}}.md)
+    - [{{{strTitle}}}](#{{{id}}})
+{{/practices}}
+{{/sections}}
+
+
+{{#sections}}
+## {{{strTitle}}}
+
+{{#practices}}
+### {{{strTitle}}}<span id="{{{id}}}"></span>
+
+{{strBody}}
+
+
 {{/practices}}
 {{/sections}}
 

@@ -1,0 +1,26 @@
+{
+  "name": "html-best-practices-ja-detailed",
+  "version": "0.0.0",
+  "description": "保守しやすく、規模に依存しないHTML文書のために",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hail2u/html-best-practices-ja-detailed.git"
+  },
+  "author": "Kyo Nagashima <hail2u@gmail.com> (https://kyonagashima.com/)",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/hail2u/html-best-practices-ja-detailed/issues"
+  },
+  "homepage": "https://hail2u.net/documents/html-best-practices.html",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "marked": "^0.8.2",
+    "mustache": "^4.0.1"
+  },
+  "private": true,
+  "type": "module"
+}

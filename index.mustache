@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>{{title}}—{{description}}</title>
+
+		<meta content="width=device-width" name="viewport">
+	</head>
+
+	<body>
+		<header>
+			<h1>{{title}}</h1>
+
+			<p>{{description}}</p>
+
+			<p>公開日時: <time datetime="{{strYear}}-{{strMonth}}-{{strDate}}T{{strHour}}:{{strMinute}}:{{strSecond}}+09:00">{{year}}年{{month}}月{{date}}日</time></p>
+
+			<nav>
+				<ol>
+					{{#sections}}
+						<li><a href="#{{id}}">{{title}}</a>
+							<ol>
+								{{#practices}}
+									<li><a href="#{{id}}">{{title}}</a></li>
+								{{/practices}}
+							</ol>
+						</li>
+					{{/sections}}
+				</ol>
+			</nav>
+		</header>
+
+		<main>
+			{{#sections}}
+				<section id="{{id}}">
+					<h1>{{title}}</h1>
+
+					{{#practices}}
+						<section id="{{id}}">
+							<h2>{{title}}</h2>
+
+							{{body}}
+						</section>
+					{{/practices}}
+				</section>
+			{{/sections}}
+		</main>
+
+		<footer>
+			<address>
+				<p>何か問題を発見しましたら<a href="https://github.com/hail2u/html-best-practices-ja-detailed/issues">GitHubリポジトリーのイシュー・トラッカー</a>で報告してください。新たな最善慣行（ベスト・プラクティス）の提案も歓迎です。</p>
+			</address>
+
+			<p>この文書は{{#license}}<a href="{{url}}">{{name}}</a>{{/license}}で公開されています。</p>
+		</footer>
+	</body>
+</html>

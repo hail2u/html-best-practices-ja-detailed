@@ -24,7 +24,7 @@ const files = [
 const escape = (c) => characters[c];
 
 const readPractice = async (id) => {
-	const md = await fs.readFile(`${id}.md`, "utf8");
+	const md = await fs.readFile(`practices/${id}.md`, "utf8");
 	const [title, ...body] = md.split("\n");
 	return {
 		body: marked(body.join("\n").trim()),

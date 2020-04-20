@@ -4,110 +4,110 @@
 
 
 - 一般
-    - [DOCTYPEで始める](#DOCTYPEで始める)
-    - [置き換えられるべきまたは旧式のDOCTYPEを使わない](#置き換えられるべきまたは旧式のDOCTYPEを使わない)
-    - [XML宣言を使用しない](#XML宣言を使用しない)
-    - [文字参照はできる限り使わない](#文字参照はできる限り使わない)
-    - [`&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする](#`&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする)
-    - [制御文字や不可視文字は数値文字参照を使う](#制御文字や不可視文字は数値文字参照を使う)
-    - [コメントではその内容の前後へ空白文字を置く](#コメントではその内容の前後へ空白文字を置く)
-    - [終了タグを省略しない](#終了タグを省略しない)
-    - [空要素の書き方を混ぜない](#空要素の書き方を混ぜない)
-    - [タグや属性値の前後へ空白文字を置かない](#タグや属性値の前後へ空白文字を置かない)
-    - [大文字・小文字を混ぜない](#大文字・小文字を混ぜない)
-    - [引用符を混ぜない](#引用符を混ぜない)
-    - [属性を2文字以上の空白文字で区切らない](#属性を2文字以上の空白文字で区切らない)
-    - [真偽値を取る属性の値は省略する](#真偽値を取る属性の値は省略する)
-    - [名前空間は省略する](#名前空間は省略する)
-    - [XML属性は使わない](#XML属性は使わない)
-    - [`data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない](#`data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない)
-    - [デフォルトの暗黙のARIAセマンティックスを尊重する](#デフォルトの暗黙のARIAセマンティックスを尊重する)
+    - [DOCTYPEで始める](#start-with-doctype)
+    - [置き換えられるべきまたは旧式のDOCTYPEを使わない](#dont-use-legacy-or-obsolete-doctype)
+    - [XML宣言を使用しない](#dont-use-xml-declaration)
+    - [文字参照はできる限り使わない](#dont-use-character-references-as-much-as-possible)
+    - [`&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする](#escape-----and--with-named-character-references)
+    - [制御文字や不可視文字は数値文字参照を使う](#use-numeric-character-references-for-control-or-invisible-characters)
+    - [コメントではその内容の前後へ空白文字を置く](#put-white-spaces-around-comment-contents)
+    - [終了タグを省略しない](#dont-omit-closing-tag)
+    - [空要素の書き方を混ぜない](#dont-mix-empty-element-format)
+    - [タグや属性値の前後へ空白文字を置かない](#dont-put-white-spaces-around-tags-and-attribute-values)
+    - [大文字・小文字を混ぜない](#dont-mix-character-cases)
+    - [引用符を混ぜない](#dont-mix-quotation-marks)
+    - [属性を2文字以上の空白文字で区切らない](#dont-separate-attributes-with-two-or-more-white-spaces)
+    - [真偽値を取る属性の値は省略する](#omit-boolean-attribute-value)
+    - [名前空間は省略する](#omit-namespaces)
+    - [XML属性は使わない](#dont-use-xml-attributes)
+    - [`data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない](#dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes)
+    - [デフォルトの暗黙のARIAセマンティックスを尊重する](#prefer-default-implicit-aria-semantics)
 - 文書要素
-    - [`lang`属性を追加する](#`lang`属性を追加する)
-    - [`lang`属性の値はできる限り短くする](#`lang`属性の値はできる限り短くする)
-    - [できる限り`data-*`属性は避ける](#できる限り`data-*`属性は避ける)
+    - [`lang`属性を追加する](#add-lang-attribute)
+    - [`lang`属性の値はできる限り短くする](#keep-lang-attribute-value-as-short-as-possible)
+    - [できる限り`data-*`属性は避ける](#avoid-data--as-much-as-possible)
 - 文書メタデータ
-    - [`title`要素を書く](#`title`要素を書く)
-    - [`base`要素を使わない](#`base`要素を使わない)
-    - [マイナーな参照先リソースのMIMEタイプを指定する](#マイナーな参照先リソースのMIMEタイプを指定する)
-    - [`favicon.ico`へリンクしない](#`favicon.ico`へリンクしない)
-    - [`apple-touch-icon`へのリンクを書く](#`apple-touch-icon`へのリンクを書く)
-    - [代替スタイルシートへ`title`属性を追加する](#代替スタイルシートへ`title`属性を追加する)
-    - [URLには`link`要素を使う](#URLには`link`要素を使う)
-    - [文書の文字エンコーディングを指定する](#文書の文字エンコーディングを指定する)
-    - [置き換えられるべき文字エンコーディング指定フォーマットを使わない](#置き換えられるべき文字エンコーディング指定フォーマットを使わない)
-    - [最初に文字エンコーディングを指定する](#最初に文字エンコーディングを指定する)
-    - [UTF-8を使う](#UTF-8を使う)
-    - [CSSの`type`属性は省略する](#CSSの`type`属性は省略する)
-    - [`style`要素の中をコメントアウトしない](#`style`要素の中をコメントアウトしない)
-    - [CSSとJavaScriptのタグを混ぜない](#CSSとJavaScriptのタグを混ぜない)
+    - [`title`要素を書く](#add-title-element)
+    - [`base`要素を使わない](#dont-use-base-element)
+    - [マイナーな参照先リソースのMIMEタイプを指定する](#specify-mime-type-of-minor-linked-resources)
+    - [`favicon.ico`へリンクしない](#dont-link-to-faviconico)
+    - [`apple-touch-icon`へのリンクを書く](#add-apple-touch-icon-link)
+    - [代替スタイルシートへ`title`属性を追加する](#add-title-attribute-to-alternate-stylesheets)
+    - [URLには`link`要素を使う](#for-url-use-link-element)
+    - [文書の文字エンコーディングを指定する](#specify-document-character-encoding)
+    - [置き換えられるべき文字エンコーディング指定フォーマットを使わない](#dont-use-legacy-character-encoding-format)
+    - [最初に文字エンコーディングを指定する](#specify-character-encoding-at-first)
+    - [UTF-8を使う](#use-utf-8)
+    - [CSSの`type`属性は省略する](#omit-type-attribute-for-css)
+    - [`style`要素の中をコメントアウトしない](#dont-comment-out-contents-of-style-element)
+    - [CSSとJavaScriptのタグを混ぜない](#dont-mix-tag-for-css-and-javascript)
 - セクション
-    - [`body`要素を書く](#`body`要素を書く)
-    - [`hgroup`要素のことは忘れる](#`hgroup`要素のことは忘れる)
-    - [`address`要素は連絡先情報にのみ使う](#`address`要素は連絡先情報にのみ使う)
+    - [`body`要素を書く](#add-body-element)
+    - [`hgroup`要素のことは忘れる](#forget-about-hgroup-element)
+    - [`address`要素は連絡先情報にのみ使う](#use-address-element-only-for-contact-information)
 - グルーピングコンテンツ
-    - [`pre`要素は改行で始めない](#`pre`要素は改行で始めない)
-    - [`blockquote`要素内でも適切な要素を使う](#`blockquote`要素内でも適切な要素を使う)
-    - [`blockquote`要素内に帰属情報を含めない](#`blockquote`要素内に帰属情報を含めない)
-    - [リスト項目は1行に1つずつ書く](#リスト項目は1行に1つずつ書く)
-    - [`ol`要素では`type`属性を使う](#`ol`要素では`type`属性を使う)
-    - [`dl`を会話のために使わない](#`dl`を会話のために使わない)
-    - [`figcaption`要素は`figure`要素の最初か最後に置く](#`figcaption`要素は`figure`要素の最初か最後に置く)
-    - [`main`要素を使う](#`main`要素を使う)
-    - [できる限り`div`要素は避ける](#できる限り`div`要素は避ける)
+    - [`pre`要素は改行で始めない](#dont-start-with-newline-in-pre-element)
+    - [`blockquote`要素内でも適切な要素を使う](#use-appropriate-element-in-blockquote-element)
+    - [`blockquote`要素内に帰属情報を含めない](#dont-include-attribution-directly-in-blockquote-element)
+    - [リスト項目は1行に1つずつ書く](#write-one-list-item-per-line)
+    - [`ol`要素では`type`属性を使う](#use-type-attribute-for-ol-element)
+    - [`dl`を会話のために使わない](#dont-use-dl-for-dialogue)
+    - [`figcaption`要素は`figure`要素の最初か最後に置く](#place-figcaption-element-as-first-or-last-child-of-figure-element)
+    - [`main`要素を使う](#use-main-element)
+    - [できる限り`div`要素は避ける](#avoid-div-element-as-much-as-possible)
 - テキストレベルセマンティックス
-    - [グループ化できるリンクは分割しない](#グループ化できるリンクは分割しない)
-    - [リソースをダウンロードさせる場合は`download`属性を使う](#リソースをダウンロードさせる場合は`download`属性を使う)
-    - [`rel`や`hreflang`、`type`属性を必要ならば使う](#`rel`や`hreflang`、`type`属性を必要ならば使う)
-    - [リンク文字列は明確にする](#リンク文字列は明確にする)
-    - [`em`要素を警告や注意に使わない](#`em`要素を警告や注意に使わない)
-    - [できる限り`s`や`i`、`b`、`u`要素を避ける](#できる限り`s`や`i`、`b`、`u`要素を避ける)
-    - [`q`要素内へ引用符は置かない](#`q`要素内へ引用符は置かない)
-    - [`abbr`要素へ`title`属性を追加する](#`abbr`要素へ`title`属性を追加する)
-    - [`ruby`要素は冗長にマークアップする](#`ruby`要素は冗長にマークアップする)
-    - [機械的に解釈可能でない`time`要素では`datetime`属性を追加する](#機械的に解釈可能でない`time`要素では`datetime`属性を追加する)
-    - [コードの言語は`class`属性で`language-`で始めることで指定する](#コードの言語は`class`属性で`language-`で始めることで指定する)
-    - [できる限り`kbd`要素はシンプルにする](#できる限り`kbd`要素はシンプルにする)
-    - [できる限り`span`要素は使わない](#できる限り`span`要素は使わない)
-    - [`br`要素の後ろでは改行する](#`br`要素の後ろでは改行する)
-    - [見た目だけのために`br`要素を使わない](#見た目だけのために`br`要素を使わない)
+    - [グループ化できるリンクは分割しない](#dont-split-same-link-that-can-be-grouped)
+    - [リソースをダウンロードさせる場合は`download`属性を使う](#use-download-attribute-for-downloading-a-resource)
+    - [`rel`や`hreflang`、`type`属性を必要ならば使う](#use-rel-hreflang-and-type-attribute-if-needed)
+    - [リンク文字列は明確にする](#clear-link-text)
+    - [`em`要素を警告や注意に使わない](#dont-use-em-element-for-warning-or-caution)
+    - [できる限り`s`や`i`、`b`、`u`要素を避ける](#avoid-s-i-b-and-u-element-as-much-as-possible)
+    - [`q`要素内へ引用符は置かない](#dont-put-quotes-to-q-element)
+    - [`abbr`要素へ`title`属性を追加する](#add-title-attribute-to-abbr-element)
+    - [`ruby`要素は冗長にマークアップする](#markup-ruby-element-verbosely)
+    - [機械的に解釈可能でない`time`要素では`datetime`属性を追加する](#add-datetime-attribute-to-non-machine-readable-time-element)
+    - [コードの言語は`class`属性で`language-`で始めることで指定する](#specify-code-language-with-class-attribute-prefixed-with-language-)
+    - [できる限り`kbd`要素はシンプルにする](#keep-kbd-element-as-simple-as-possible)
+    - [できる限り`span`要素は使わない](#avoid-span-element-as-much-as-possible)
+    - [`br`要素の後ろでは改行する](#break-after-br-element)
+    - [見た目だけのために`br`要素を使わない](#dont-use-br-element-only-for-presentational-purpose)
 - 編集
-    - [`ins`や`del`要素は他の要素をまたがせない](#`ins`や`del`要素は他の要素をまたがせない)
+    - [`ins`や`del`要素は他の要素をまたがせない](#dont-stride-ins-and-del-element-over-other-elements)
 - エンベディッドコンテンツ
-    - [`picture`要素ではフォールバックのための`img`要素を提供する](#`picture`要素ではフォールバックのための`img`要素を提供する)
-    - [必要な時は`img`要素へ`alt`属性を追加する](#必要な時は`img`要素へ`alt`属性を追加する)
-    - [可能ならば`alt`属性は空にする](#可能ならば`alt`属性は空にする)
-    - [可能ならば`alt`属性は省略する](#可能ならば`alt`属性は省略する)
-    - [`iframe`要素の中は空にする](#`iframe`要素の中は空にする)
-    - [`map`要素の中はマークアップする](#`map`要素の中はマークアップする)
-    - [`audio`や`video`要素にフォールバックのためのコンテンツを提供する](#`audio`や`video`要素にフォールバックのためのコンテンツを提供する)
+    - [`picture`要素ではフォールバックのための`img`要素を提供する](#provide-fallback-img-element-for-picture-element)
+    - [必要な時は`img`要素へ`alt`属性を追加する](#add-alt-attrbute-to-img-element-if-needed)
+    - [可能ならば`alt`属性は空にする](#empty-alt-attribute-if-possible)
+    - [可能ならば`alt`属性は省略する](#omit-alt-attribute-if-possible)
+    - [`iframe`要素の中は空にする](#empty-iframe-element)
+    - [`map`要素の中はマークアップする](#markup-map-element-content)
+    - [`audio`や`video`要素にフォールバックのためのコンテンツを提供する](#provide-fallback-content-for-audio-or-video-element)
 - テーブルデータ
-    - [1行に1つのセルを書く](#1行に1つのセルを書く)
-    - [見出しセルには`th`要素を使う](#見出しセルには`th`要素を使う)
+    - [1行に1つのセルを書く](#write-one-cell-per-line)
+    - [見出しセルには`th`要素を使う](#use-th-element-for-header-cell)
 - フォーム
-    - [フォームコントロールは`label`要素で括る](#フォームコントロールは`label`要素で括る)
-    - [可能ならば`for`属性は省略する](#可能ならば`for`属性は省略する)
-    - [`input`要素では適切な`type`属性を使う](#`input`要素では適切な`type`属性を使う)
-    - [`input type="submit"`には`value`属性を追加する](#`input type="submit"`には`value`属性を追加する)
-    - [`pattern`属性を持つ`input`要素には`title`属性を追加する](#`pattern`属性を持つ`input`要素には`title`属性を追加する)
-    - [`placeholder`属性をラベル付けに使わない](#`placeholder`属性をラベル付けに使わない)
-    - [`option`要素は1行に1つ書く](#`option`要素は1行に1つ書く)
-    - [`progress`要素には`max`属性を追加する](#`progress`要素には`max`属性を追加する)
-    - [`meter`要素では`min`及び`max`属性を追加する](#`meter`要素では`min`及び`max`属性を追加する)
-    - [`legend`要素は`fieldset`要素の最初に置く](#`legend`要素は`fieldset`要素の最初に置く)
+    - [フォームコントロールは`label`要素で括る](#wrap-form-control-with-label-element)
+    - [可能ならば`for`属性は省略する](#omit-for-attribute-if-possible)
+    - [`input`要素では適切な`type`属性を使う](#use-appropriate-type-attribute-for-input-element)
+    - [`input type="submit"`には`value`属性を追加する](#add-value-attribute-to-input-typesubmit)
+    - [`pattern`属性を持つ`input`要素には`title`属性を追加する](#add-title-attribute-to-input-element-when-there-is-pattern-attribute)
+    - [`placeholder`属性をラベル付けに使わない](#dont-use-placeholder-attribute-for-labeling)
+    - [`option`要素は1行に1つ書く](#write-one-option-element-per-line)
+    - [`progress`要素には`max`属性を追加する](#add-max-attribute-to-progress-element)
+    - [`meter`要素では`min`及び`max`属性を追加する](#add-min-and-max-attribute-to-meter-element)
+    - [`legend`要素は`fieldset`要素の最初に置く](#place-legend-element-as-the-first-child-of-fieldset-element)
 - スクリプティング
-    - [JavaScriptでは`type`属性を省略する](#JavaScriptでは`type`属性を省略する)
-    - [`script`要素の中をコメントアウトしない](#`script`要素の中をコメントアウトしない)
-    - [`script`要素を動的に生成するテクニックを使わない](#`script`要素を動的に生成するテクニックを使わない)
+    - [JavaScriptでは`type`属性を省略する](#omit-type-attribute-for-javascript)
+    - [`script`要素の中をコメントアウトしない](#dont-comment-out-contents-of-script-element)
+    - [`script`要素を動的に生成するテクニックを使わない](#dont-use-script-injected-script-element)
 - その他
-    - [一貫した量でインデントする](#一貫した量でインデントする)
-    - [内部リンクには絶対パスを使う](#内部リンクには絶対パスを使う)
-    - [外部リソースにはプロトコル相対URLを使わない](#外部リソースにはプロトコル相対URLを使わない)
+    - [一貫した量でインデントする](#indent-consistently)
+    - [内部リンクには絶対パスを使う](#use-absolute-path-for-internal-links)
+    - [外部リソースにはプロトコル相対URLを使わない](#dont-use-protocol-relative-url-for-external-resources)
 
 
 ## 一般
 
-### DOCTYPEで始める
+### DOCTYPEで始める<span id="start-with-doctype"></span>
 
 DOCTYPEは標準モードを有効にするために必要です。
 
@@ -136,7 +136,7 @@ DOCTYPEは標準モードを有効にするために必要です。
 [1]: https://developer.mozilla.org/ja/docs/Quirks_Mode_and_Standards_Mode
 
 
-### 置き換えられるべきまたは旧式のDOCTYPEを使わない
+### 置き換えられるべきまたは旧式のDOCTYPEを使わない<span id="dont-use-legacy-or-obsolete-doctype"></span>
 
 もはやDOCTYPEはDTDのためにあるわけではないので、シンプルにしましょう。
 
@@ -154,7 +154,7 @@ DOCTYPEは標準モードを有効にするために必要です。
 現在のHTML仕様では、短いDOCTYPEを出力できない、つまりもはや手を入れられないレガシーな仕組みに限り、この長い呪文のようなDOCTYPEを使っても良いとされています。こういった面からも長いDOCTYPEを書く必要はまったくないでしょう。
 
 
-### XML宣言を使用しない
+### XML宣言を使用しない<span id="dont-use-xml-declaration"></span>
 
 まだXHTMLを書きたいんですか？
 
@@ -183,7 +183,7 @@ XHTML 1.xでは、XML 1.0にも従うことが要求されます。そのためX
 [1]: specify-document-character-encoding.ja.md
 
 
-### 文字参照はできる限り使わない
+### 文字参照はできる限り使わない<span id="dont-use-character-references-as-much-as-possible"></span>
 
 UTF-8でHTML文書を書くなら、Emojiも含めほとんどあらゆる文字はそのまま書けます。
 
@@ -209,7 +209,7 @@ HTML 4.01では、HTML文書で利用している文字コードで表現でき�
 [1]: use-utf8.ja.md
 
 
-### `&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする
+### `&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする<span id="escape-----and--with-named-character-references"></span>
 
 バグのないHTML文書を作成するためには、これらの文字は常にエスケープされるべきです。
 
@@ -237,7 +237,7 @@ HTMLにおいて特別な意味を持ち、頻出するこれらの文字が、H
 これらは数値文字参照でも表現できます。しかし、伝統的に使われてきた名前文字参照を使ってエスケープする方が、多くの人にわかりやすいでしょう。
 
 
-### 制御文字や不可視文字は数値文字参照を使う
+### 制御文字や不可視文字は数値文字参照を使う<span id="use-numeric-character-references-for-control-or-invisible-characters"></span>
 
 これらの文字は簡単に他の文字と間違えられてしまいます。また仕様では、これらの文字へ人間にわかりやすい名前が付けられていることを保証していません。
 
@@ -265,7 +265,7 @@ HTML文書において特別な意味を持つ文字以外にも、いくつか�
 これらには名前文字参照も用意されていますが、ゼロ幅非改行スペースなど最近のユニコード仕様で追加された制御文字には用意されていません。そのためこのように数値文字参照を使うように統一すると、HTMLにおいて特別な意味を持つ文字のエスケープであることが明確に区別ができ、わかりやすいでしょう。ただし、以前からよく使われていたノーブレーク・スペース（`&nbsp;`）に限っては名前文字参照の方がわかりやすいかもしれません。
 
 
-### コメントではその内容の前後へ空白文字を置く
+### コメントではその内容の前後へ空白文字を置く<span id="put-white-spaces-around-comment-contents"></span>
 
 いくつかの文字はコメントの開始直後や終了直前に書けません。
 
@@ -286,7 +286,7 @@ HTML文書において特別な意味を持つ文字以外にも、いくつか�
 コメントは、自身で能動的に書く以外にも、様々な形で自動的に挿入されます。そういった場合も含めて、これらの制限を確実に避けるためには、良い例で挙げたようにコメントの最初と最後に*半角空白*を入れるのが良いでしょう。理論上は半角空白以外の何かしらの文字でも問題ありませんが、読みやすさや入力のしやすさを考慮すると半角空白が適当です。
 
 
-### 終了タグを省略しない
+### 終了タグを省略しない<span id="dont-omit-closing-tag"></span>
 
 多分、あなたは終了タグを省略するためのルールを理解していないでしょう。
 
@@ -324,7 +324,7 @@ HTML文書では、いくつかのルールに従って終了タグ（閉じタ�
 幸い、終了タグを常に書くというわかりやすいルールでは問題が起こることはありません。そうすることでブラウザーも正しく解釈してくれることでしょう。
 
 
-### 空要素の書き方を混ぜない
+### 空要素の書き方を混ぜない<span id="dont-mix-empty-element-format"></span>
 
 一貫性は読みやすさのキーポイントです。
 
@@ -352,7 +352,7 @@ HTML文書では、いくつかのルールに従って終了タグ（閉じタ�
 [1]: dont-use-xml-declaration.ja.md
 
 
-### タグや属性値の前後へ空白文字を置かない
+### タグや属性値の前後へ空白文字を置かない<span id="dont-put-white-spaces-around-tags-and-attribute-values"></span>
 
 そうする必要はまったくありません。
 
@@ -371,7 +371,7 @@ HTML文書では、いくつかのルールに従って終了タグ（閉じタ�
 空白を入れることなく書かれているHTMLコードが一般的に多いことは感覚的にわかるはずです。そのことを考慮すると、良い例で挙げたような書き方をしておけばすくなくとも読みづらいとは思われないでしょう。
 
 
-### 大文字・小文字を混ぜない
+### 大文字・小文字を混ぜない<span id="dont-mix-character-cases"></span>
 
 これも一貫性を与えてくれます。
 
@@ -402,7 +402,7 @@ HTML文書では、いくつかのルールに従って終了タグ（閉じタ�
 より読みやすいHTMLソースのために、まずは大文字・小文字、そして引用符の統一から始めましょう。何に統一するかは自由です。一般的には小文字で書く人が増えているようですので、そうするのも悪くはありません。
 
 
-### 引用符を混ぜない
+### 引用符を混ぜない<span id="dont-mix-quotation-marks"></span>
 
 上に同じです。
 
@@ -432,7 +432,7 @@ HTMLの解釈において引用符の違いが問題になることはまずあ�
 なお一重、二重のどちらの引用符を利用するかは自由です。一重引用符は文書内でアポストロフィーの代わりに多用されることを考慮すると、二重引用符の方がわかりやすい可能性はありますが、重要なことはどちらかに統一することです。
 
 
-### 属性を2文字以上の空白文字で区切らない
+### 属性を2文字以上の空白文字で区切らない<span id="dont-separate-attributes-with-two-or-more-white-spaces"></span>
 
 あなたのよくわからない整形ルールは誰かを混乱させます。
 
@@ -460,7 +460,7 @@ HTMLの解釈において引用符の違いが問題になることはまずあ�
 属性を*常に半角空白1つで区切る*という明快なルールは多くの人に受け入れられることでしょう。読みやすさが向上するということはありませんが、少なくとも読みやすさが落ちるということはありません。
 
 
-### 真偽値を取る属性の値は省略する
+### 真偽値を取る属性の値は省略する<span id="omit-boolean-attribute-value"></span>
 
 この方が簡単に書けますよね？
 
@@ -485,7 +485,7 @@ HTMLの解釈において引用符の違いが問題になることはまずあ�
 明らかにこの方が書きやすく、また読みやすいでしょう。属性名をそのまま指定するのは冗長すぎ、空文字列はあまり使われないことを考えると、このように省略するのが最も良いはずです。
 
 
-### 名前空間は省略する
+### 名前空間は省略する<span id="omit-namespaces"></span>
 
 SVGやMathMLはHTMLの文書では直接扱えます。
 
@@ -506,7 +506,7 @@ SVGやMathMLはHTMLの文書では直接扱えます。
 比較的利用する機会があると考えられたMathMLや、存在感を増してきたSVGに関しては、限定的ではありますがインラインでそのまま利用できるように仕様で定義されています。そのため、悪い例で挙げたように指定する必要はまったくありません。
 
 
-### XML属性は使わない
+### XML属性は使わない<span id="dont-use-xml-attributes"></span>
 
 我々はHTML文書を書いています。
 
@@ -528,7 +528,7 @@ HTML文書を書き、[名前空間を使わないと][1]、事実上`xml:lang`�
 [1]: omit-namespaces.ja.md
 
 
-### `data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない
+### `data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない<span id="dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes"></span>
 
 タグ文字列はとても複雑になりえます。こういった簡単なルールによってタグ文字列を読みやすくできるでしょう。
 
@@ -547,7 +547,7 @@ HTML文書を書き、[名前空間を使わないと][1]、事実上`xml:lang`�
 良い例で挙げたように、まずはそれぞれの要素ごとに定義されている属性を書くと、そこでその要素がどういう振る舞いをするのかが概ね決定できるので、どのような意図を持った要素なのかが明確になります。続けてカスタムデータ属性はカスタムデータ属性でまとめ、Microdataの属性もMicrodataの属性でまとめて書くようにするのが良いでしょう。
 
 
-### デフォルトの暗黙のARIAセマンティックスを尊重する
+### デフォルトの暗黙のARIAセマンティックスを尊重する<span id="prefer-default-implicit-aria-semantics"></span>
 
 いくつかの要素はHTML文章において暗黙的にARIA `role`を持っているので、それは指定しないようにしましょう。
 
@@ -576,7 +576,7 @@ HTML文書を書き、[名前空間を使わないと][1]、事実上`xml:lang`�
 
 ## 文書要素
 
-### `lang`属性を追加する
+### `lang`属性を追加する<span id="add-lang-attribute"></span>
 
 `lang`属性はHTML文書の翻訳に役立ちます。
 
@@ -608,7 +608,7 @@ HTML文書はどのような言語でも書くことができます。もちろ�
 このようにきちんと言語を明示しておくことで、クライアント側ではブラウザーの翻訳ツールなどがうまく利用してくれます。検索エンジンのようなサーバー側でもうまく扱ってもらえることが期待でき、その結果より良い検索結果を提供してくれることでしょう。
 
 
-### `lang`属性の値はできる限り短くする
+### `lang`属性の値はできる限り短くする<span id="keep-lang-attribute-value-as-short-as-possible"></span>
 
 日本語は日本でのみ使われます。つまり国コードは必要ありません。
 
@@ -646,7 +646,7 @@ HTML文書はどのような言語でも書くことができます。もちろ�
 [2]: http://tools.ietf.org/html/rfc5646
 
 
-### できる限り`data-*`属性は避ける
+### できる限り`data-*`属性は避ける<span id="avoid-data--as-much-as-possible"></span>
 
 適切な属性は、ブラウザーがうまく扱ってくれるかもしれません。
 
@@ -671,7 +671,7 @@ HTML要素にはそれぞれ多くの属性があらかじめ定義されてい�
 
 ## 文書メタデータ
 
-### `title`要素を書く
+### `title`要素を書く<span id="add-title-element"></span>
 
 `title`要素の中身は、ブラウザーに限らず、様々なアプリケーションにより利用されます。
 
@@ -697,7 +697,7 @@ HTML要素にはそれぞれ多くの属性があらかじめ定義されてい�
 また、`title`要素によって提供される文書のタイトルは、ブラウザーや検索エンジンを始めとした様々なソフトウェアやサービスから利用されます。そういった観点からも省略することは望ましくありません。
 
 
-### `base`要素を使わない
+### `base`要素を使わない<span id="dont-use-base-element"></span>
 
 絶対パスや絶対URLの方が開発者とユーザーの双方に安全です。
 
@@ -727,7 +727,7 @@ HTML要素にはそれぞれ多くの属性があらかじめ定義されてい�
 ただし、`target`属性の利用は難しいところです。すべて`target=_blank`になるようにするのはなかなか興味深いアプローチです。ただ`form`要素での`target=_self`の指定し忘れには気を付けなければなりません。
 
 
-### マイナーな参照先リソースのMIMEタイプを指定する
+### マイナーな参照先リソースのMIMEタイプを指定する<span id="specify-mime-type-of-minor-linked-resources"></span>
 
 アプリケーションがそのリソースをどう取り扱うべきかのヒントになります。
 
@@ -753,7 +753,7 @@ HTML要素にはそれぞれ多くの属性があらかじめ定義されてい�
 [1]: http://www.rssboard.org/rss-autodiscovery
 
 
-### `favicon.ico`へリンクしない
+### `favicon.ico`へリンクしない<span id="dont-link-to-faviconico"></span>
 
 ほとんどのブラウザーは`/favicon.ico`を自動的に非同期で取得します。
 
@@ -776,7 +776,7 @@ HTML要素にはそれぞれ多くの属性があらかじめ定義されてい�
 [1]: https://html.spec.whatwg.org/multipage/links.html#rel-icon
 
 
-### `apple-touch-icon`へのリンクを書く
+### `apple-touch-icon`へのリンクを書く<span id="add-apple-touch-icon-link"></span>
 
 デフォルトでリクエストされるタッチ・アイコンのパスは突然変わりました。
 
@@ -793,7 +793,7 @@ iOSで最初にサポートされたタッチ・アイコンは、長らく暗�
 リンクがない場合に探しに行くようになっているため、リンクしないことはパフォーマンスの面でもメリットはありません。良い例で挙げたように素直に指定すると良いでしょう。後方互換性を意識して、パスは`/apple-touch-icon(-precomposed).png`にしておくのも悪くありません。
 
 
-### 代替スタイルシートへ`title`属性を追加する
+### 代替スタイルシートへ`title`属性を追加する<span id="add-title-attribute-to-alternate-stylesheets"></span>
 
 人間にわかりやすいラベルにより適切なスタイルシートを選択しやすくなります。
 
@@ -818,7 +818,7 @@ iOSで最初にサポートされたタッチ・アイコンは、長らく暗�
 代替スタイルシートへの名前付けには専用の属性は用意されておらず、`title`属性を利用して行うことになっています。良い例で挙げたように、できるだけ短く、それでいてわかりやすい名前を`title`属性で指定してやりましょう。するとわかりやすい名前で切り替えのためのユーザー・インターフェイスに表示されることが期待できます。
 
 
-### URLには`link`要素を使う
+### URLには`link`要素を使う<span id="for-url-use-link-element"></span>
 
 `href`属性の値はURLとして解決できます。
 
@@ -841,7 +841,7 @@ iOSで最初にサポートされたタッチ・アイコンは、長らく暗�
 Facebookのいいねボタンのように、`meta`要素の利用が義務付けられている場合はしょうがありませんが、そうでないならば`link`要素などを使い絶対パスでURLを指定した方が効率的です。`https:`の「s」を忘れるようなケアレスミスも減ることでしょう。
 
 
-### 文書の文字エンコーディングを指定する
+### 文書の文字エンコーディングを指定する<span id="specify-document-character-encoding"></span>
 
 まだすべてのブラウザーでUTF-8がデフォルトになっていません。
 
@@ -863,7 +863,7 @@ Facebookのいいねボタンのように、`meta`要素の利用が義務付け
 [1]: use-utf-8.ja.md
 
 
-### 置き換えられるべき文字エンコーディング指定フォーマットを使わない
+### 置き換えられるべき文字エンコーディング指定フォーマットを使わない<span id="dont-use-legacy-character-encoding-format"></span>
 
 HTTPヘッダーはサーバー側で指定されるべきで、簡単にしておきましょう。
 
@@ -886,7 +886,7 @@ HTML 4.01でももちろん文字コードを指定できましたが、それ�
 ブラウザーはそれらをなんとか解釈してやり、文字コードを適切に設定しようと試みないとなりません。そういったわけでこういった雑な`meta`要素も古いブラウザーで解釈でき、その影響で良い例で挙げたようなコードも解釈できるわけです。古いブラウザーで解釈できる限界を探った結果が、良い例で挙げたようなコードが編み出されたのです。
 
 
-### 最初に文字エンコーディングを指定する
+### 最初に文字エンコーディングを指定する<span id="specify-character-encoding-at-first"></span>
 
 仕様では文書の先頭1024バイトまでに文字エンコーディングを指定することを要求しています。
 
@@ -916,7 +916,7 @@ HTML 4.01でももちろん文字コードを指定できましたが、それ�
 [1]: https://html.spec.whatwg.org/multipage/semantics.html#charset
 
 
-### UTF-8を使う
+### UTF-8を使う<span id="use-utf-8"></span>
 
 UTF-8ならEmojiを自由に使えます。
 
@@ -943,7 +943,7 @@ HTMLはそれだけではなく、CSSやJavaScriptと共に配信されるもの
 [2]: http://openmya.hacker.jp/hasegawa/security/utf7cs.html
 
 
-### CSSの`type`属性は省略する
+### CSSの`type`属性は省略する<span id="omit-type-attribute-for-css"></span>
 
 HTMLでは、`style`要素における`type`属性の初期値は`text/css`です。
 
@@ -966,7 +966,7 @@ HTMLでは、CSSやJavaScriptを使って、HTMLだけでは実現できない�
 CSSとJavaScriptを使うならば良い例で挙げたように`type`属性を省略できます。しかし、もしかすると将来はより高度なスタイル言語やスクリプト言語を利用できるかもしれません。その場合には`type`属性を使って適切なMIMEタイプを指定してあげましょう。
 
 
-### `style`要素の中をコメントアウトしない
+### `style`要素の中をコメントアウトしない<span id="dont-comment-out-contents-of-style-element"></span>
 
 この儀式は古いブラウザーのためです。
 
@@ -990,7 +990,7 @@ CSSとJavaScriptを使うならば良い例で挙げたように`type`属性を�
 [1]: dont-comment-out-contents-of-script-element.ja.md
 
 
-### CSSとJavaScriptのタグを混ぜない
+### CSSとJavaScriptのタグを混ぜない<span id="dont-mix-tag-for-css-and-javascript"></span>
 
 `script`要素はDOMの構築をブロックするかもしれません。
 
@@ -1027,7 +1027,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 
 ## セクション
 
-### `body`要素を書く
+### `body`要素を書く<span id="add-body-element"></span>
 
 ブラウザーは思っても見ない位置へ`body`要素を補完するかもしれません。
 
@@ -1061,7 +1061,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 [1]: http://kangax.github.io/html-minifier/
 
 
-### `hgroup`要素のことは忘れる
+### `hgroup`要素のことは忘れる<span id="forget-about-hgroup-element"></span>
 
 あまり使われていません。
 
@@ -1082,7 +1082,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 この状況が容易に変化するとも思えず、あえて使うこともないでしょう。
 
 
-### `address`要素は連絡先情報にのみ使う
+### `address`要素は連絡先情報にのみ使う<span id="use-address-element-only-for-contact-information"></span>
 
 `address`要素はメールアドレスやSNSアカウント、住所、電話番号など、実際に利用できるあなたとの連絡手段のための要素です。
 
@@ -1103,7 +1103,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 
 ## グルーピングコンテンツ
 
-### `pre`要素は改行で始めない
+### `pre`要素は改行で始めない<span id="dont-start-with-newline-in-pre-element"></span>
 
 最初の改行はブラウザーに無視されますが、2番目以降はそのまま表示されます。
 
@@ -1143,7 +1143,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 常にこのように改行を入れずに始めると、挙動の統一を図ることができます。これならコピー・アンド・ペーストにも強いでしょう。
 
 
-### `blockquote`要素内でも適切な要素を使う
+### `blockquote`要素内でも適切な要素を使う<span id="use-appropriate-element-in-blockquote-element"></span>
 
 `blockquote`要素の中身は引用で、単なる文字の連続ではありません。
 
@@ -1164,7 +1164,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 引用対象がプレーンテキストや実生活での会話である場合、`p`要素を始めとしたHTML要素で適切にマークアップすることが難しいかもしれません。そういった限られたケースではプレーンテキストでの引用にならざるを得ませんが、概ね良い例で挙げたようにマークアップしてやるべきです。
 
 
-### `blockquote`要素内に帰属情報を含めない
+### `blockquote`要素内に帰属情報を含めない<span id="dont-include-attribution-directly-in-blockquote-element"></span>
 
 `blockquote`要素の中身は引用です。
 
@@ -1199,7 +1199,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 良い例で挙げたように必ず`blockquote`要素の外に出してやりましょう。これでも引用と引用元の対応関係は必ずしも明確ではありませんが、仕様で実装例として触れられていることから、適切に解釈されることを期待しても良いはずです。対応関係を明確にしたい場合は、冗長ですが、`figure`と`figcaption`要素を使うと良いでしょう。
 
 
-### リスト項目は1行に1つずつ書く
+### リスト項目は1行に1つずつ書く<span id="write-one-list-item-per-line"></span>
 
 長ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーい行はとっっっっっっっっっっっっっっっっっっっっっっっっっっっても読みづらいです。
 
@@ -1241,7 +1241,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 リスト項目を横並びにするCSSの都合上、項目間に改行が入らないようにしたいということもままあります。そういった場合に限り1行にまとめて書くという妥協をしても良いですが、現在は改行に依存しない横並びにする手段がいくつかあるので、一貫して1行に1つと決めておくほうが紛れがなくなるでしょう。
 
 
-### `ol`要素では`type`属性を使う
+### `ol`要素では`type`属性を使う<span id="use-type-attribute-for-ol-element"></span>
 
 リスト・マーカーは周辺から参照される場合があります。`type`属性を使ってリスト・マーカーを変更すれば、安全に参照できるでしょう。
 
@@ -1281,7 +1281,7 @@ JavaScriptファイルを`async`属性付きで非同期に読み込む場合や
 `ol`要素には`type`属性として何種類かマーカーのプリセットが用意されています。これを利用すればそういった食い違いは起こりません。残念ながら日本語向けのプリセットは用意されていませんが、できる限りこれらのプリセットを利用することで、環境に依存しないHTML文書を提供できます。
 
 
-### `dl`を会話のために使わない
+### `dl`を会話のために使わない<span id="dont-use-dl-for-dialogue"></span>
 
 HTMLでは`dl`要素は関連付けリストに限定されています。
 
@@ -1321,7 +1321,7 @@ HTML 4.01では、`dl`要素の利用例として会話をマークアップで�
 [1]: https://html.spec.whatwg.org/multipage/semantics-other.html#conversations
 
 
-### `figcaption`要素は`figure`要素の最初か最後に置く
+### `figcaption`要素は`figure`要素の最初か最後に置く<span id="place-figcaption-element-as-first-or-last-child-of-figure-element"></span>
 
 仕様では`figcaption`要素を`figure`要素の中ほどに置けません。
 
@@ -1369,7 +1369,7 @@ HTML 4.01では、`dl`要素の利用例として会話をマークアップで�
 最初と最後のどちらに置くかは難しいところですが、少なくともこのようにひとまとまりとして捉えてキャプションをつけてやる必要があります。それぞれにキャプションを付けることそれ自体が重要である場合は、*さらに`figure`要素をネストしそれぞれの画像ごとに`figcaption`要素を使用*しましょう。
 
 
-### `main`要素を使う
+### `main`要素を使う<span id="use-main-element"></span>
 
 `main`要素はコンテンツをまとめるために使えます。
 
@@ -1392,7 +1392,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 ブラウザー他でほぼ問題ないレベルまでサポートされています。積極的に使う理由を挙げられるわけではないですが、同時に使わない理由もほとんどありません。`div`要素ではなく、できる限り`main`要素を優先して使うことをお勧めします。ただし`main`要素は汎用的なラッパーのための要素ではないので、スタイル目的で使うべきものではありません。そういった場合には今まで通り`div`要素を使用するべきです。
 
 
-### できる限り`div`要素は避ける
+### できる限り`div`要素は避ける<span id="avoid-div-element-as-much-as-possible"></span>
 
 `div`要素は最後の手段です。
 
@@ -1439,7 +1439,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 
 ## テキストレベルセマンティックス
 
-### グループ化できるリンクは分割しない
+### グループ化できるリンクは分割しない<span id="dont-split-same-link-that-can-be-grouped"></span>
 
 `a`要素はほとんどの要素（フォームコントロールのようなインタラクティブ要素や`a`要素自身以外）を括れます。
 
@@ -1462,7 +1462,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 このことはユーザビリティーの面でもメリットがあります。悪い例で挙げたような書き方だと、見出しと概要の間にある余白がリンクになりません。リンクにするためには特別に余白を`padding`プロパティーで行うなどの対処が必要です。対して良い例で挙げたような書き方では、概ね全体がリンクになります。こういった余白がリンクになっていると、モバイル機器のように`:hover`相当のインタラクションが存在しない場合でもリンクを扱いやすくなるでしょう。またスクリーン・リーダーで何回も同じリンクが読み上げられないという点でもユーザーに優しいはずです。
 
 
-### リソースをダウンロードさせる場合は`download`属性を使う
+### リソースをダウンロードさせる場合は`download`属性を使う<span id="use-download-attribute-for-downloading-a-resource"></span>
 
 こうすることでダウンロードするリンク先のリソースを確実にローカルに保存させられます。
 
@@ -1481,7 +1481,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 良い例で挙げたように書くと、最近のブラウザーではダウンロードされることが保障されます。ブラウザーで無理やり開かれる場合と比べてセキュリティーの問題も減るので、ダウンロードさせたいリソースにはこのように指定してやりましょう。
 
 
-### `rel`や`hreflang`、`type`属性を必要ならば使う
+### `rel`や`hreflang`、`type`属性を必要ならば使う<span id="use-rel-hreflang-and-type-attribute-if-needed"></span>
 
 これらのヒントは、アプリケーションがリンク先のリソースをどう扱えば良いのかの助けになります。
 
@@ -1507,7 +1507,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 [1]: use-download-attribute-for-downloading-a-resource.ja.md
 
 
-### リンク文字列は明確にする
+### リンク文字列は明確にする<span id="clear-link-text"></span>
 
 リンク文字列はリンク先のリソースのラベルであるべきです。
 
@@ -1526,7 +1526,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 明確に、とは、良い例で挙げたように、リンクの目的について端的に表現することです。悪い例で挙げたように、リンクの使い方について表現することではありません。
 
 
-### `em`要素を警告や注意に使わない
+### `em`要素を警告や注意に使わない<span id="dont-use-em-element-for-warning-or-caution"></span>
 
 それらは深刻なものです。ですから`strong`要素の方がより相応しいはずです。
 
@@ -1547,7 +1547,7 @@ HTML 4.01では、`em`と`strong`要素はどちらも強調で、その度合�
 ニュアンスが難しいところもありますが、表現が多彩になったととらえるべきです。`mark`要素と合わせてうまく使い分けましょう。
 
 
-### できる限り`s`や`i`、`b`、`u`要素を避ける
+### できる限り`s`や`i`、`b`、`u`要素を避ける<span id="avoid-s-i-b-and-u-element-as-much-as-possible"></span>
 
 これらの要素のセマンティックスは人類には難しすぎます。
 
@@ -1568,7 +1568,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 一部のライブラリーでは`i`要素をなんとアイコンの用途に使っています。まさか「icon」の「i」というわけではないでしょうが、悪い例で挙げたような利用は避けるべきです。
 
 
-### `q`要素内へ引用符は置かない
+### `q`要素内へ引用符は置かない<span id="dont-put-quotes-to-q-element"></span>
 
 引用符はブラウザーが提供します。
 
@@ -1597,7 +1597,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 仕様でもこのように`q`要素を使わず明示的に引用符を使用しても良いとされています。`q`要素を使うべきかどうかは判断が難しいところではありますが、間違った使い方だけはしないようにしましょう。
 
 
-### `abbr`要素へ`title`属性を追加する
+### `abbr`要素へ`title`属性を追加する<span id="add-title-attribute-to-abbr-element"></span>
 
 他に完全表記を提示する方法がありません。
 
@@ -1624,7 +1624,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 このように完全表記をまず提示し、その略語を書くことで、よりわかりやすい文章になることは確実でしょう。その時に`abbr`要素をこう使うことで、括弧内が略語であることを明示できます。ただ、この書き方はかなり冗長なので、良い例で挙げたようにブラウザーが持つ`title`属性のツールチップなどによる展開機能を期待しても良いでしょう。いずれにせよ`abbr`要素が必要になるケースでは、ほぼ`title`要素も書くことになります。
 
 
-### `ruby`要素は冗長にマークアップする
+### `ruby`要素は冗長にマークアップする<span id="markup-ruby-element-verbosely"></span>
 
 `ruby`要素のサポートはまだモダンブラウザー間でも完了していません。
 
@@ -1643,7 +1643,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 良い例で挙げたように冗長にマークアップしておくと、完全なサポートがあればフリガナで、そうでない場合は「HTML (えいちてぃーえむえる)」と表示されます。こうすることでどんな環境でも違和感のない結果を提供できるでしょう。
 
 
-### 機械的に解釈可能でない`time`要素では`datetime`属性を追加する
+### 機械的に解釈可能でない`time`要素では`datetime`属性を追加する<span id="add-datetime-attribute-to-non-machine-readable-time-element"></span>
 
 `datetime`属性を使わない場合、`time`要素の中身は限定されます。
 
@@ -1663,7 +1663,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 [1]: https://html.spec.whatwg.org/multipage/text-level-semantics.html#datetime-value
 
 
-### コードの言語は`class`属性で`language-`で始めることで指定する
+### コードの言語は`class`属性で`language-`で始めることで指定する<span id="specify-code-language-with-class-attribute-prefixed-with-language-"></span>
 
 これは正式な方法ではありませんが、仕様では言及されています。
 
@@ -1680,7 +1680,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 多くのマークアップ・ジェネレーターでも採用されており、事実上の業界標準でしょう。また、場合によってはJavaScriptとCSSによる構文強調も期待できます。後々追加できるようなものではないため、今は必要なくてもできうる限り追加しておくと良いでしょう。
 
 
-### できる限り`kbd`要素はシンプルにする
+### できる限り`kbd`要素はシンプルにする<span id="keep-kbd-element-as-simple-as-possible"></span>
 
 入れ子にした`kbd`要素は人類には難しすぎます。
 
@@ -1700,7 +1700,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 [1]: markup-ruby-element-verbosely.ja.md
 
 
-### できる限り`span`要素は使わない
+### できる限り`span`要素は使わない<span id="avoid-span-element-as-much-as-possible"></span>
 
 `span`要素は最後の手段です。
 
@@ -1717,7 +1717,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 [1]: avoid-div-element-as-much-as-possible.ja.md
 
 
-### `br`要素の後ろでは改行する
+### `br`要素の後ろでは改行する<span id="break-after-br-element"></span>
 
 `br`要素が使われる場所には、間違いなく改行が必要です。
 
@@ -1744,7 +1744,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 ソース上でも改行し、コンテンツをできうる限り直截的に伝わるようにしておくと良いはずです。そうすることで、レイアウトの都合などの理由により必要不可欠であるはずの改行が消されてしまうといった問題を避けられるはずです。
 
 
-### 見た目だけのために`br`要素を使わない
+### 見た目だけのために`br`要素を使わない<span id="dont-use-br-element-only-for-presentational-purpose"></span>
 
 `br`要素は改行のためにあるのではなく、コンテンツに必要な改行のためにあります。
 
@@ -1769,7 +1769,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 
 ## 編集
 
-### `ins`や`del`要素は他の要素をまたがせない
+### `ins`や`del`要素は他の要素をまたがせない<span id="dont-stride-ins-and-del-element-over-other-elements"></span>
 
 要素は他の要素をまたげません。
 
@@ -1794,7 +1794,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 
 ## エンベディッドコンテンツ
 
-### `picture`要素ではフォールバックのための`img`要素を提供する
+### `picture`要素ではフォールバックのための`img`要素を提供する<span id="provide-fallback-img-element-for-picture-element"></span>
 
 `picture`要素のサポートはまだよくありません。
 
@@ -1821,7 +1821,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 しかし、このままでは`source`要素をサポートしていないブラウザーでは何も表示できません。そこで最後のフォールバックとして`img`要素を使えるように仕様では決められました。良い例で挙げたように書くことで、適切なフォーマットを選ぶ自由さを維持しつつ、古いブラウザーでは`img`要素で指定された画像が表示されます。このフォールバックの仕組みが必要なブラウザーはごく少数になりつつありますが、`source`要素を書く場合と手間は変わらないことですし、`img`要素で書くべきでしょう。
 
 
-### 必要な時は`img`要素へ`alt`属性を追加する
+### 必要な時は`img`要素へ`alt`属性を追加する<span id="add-alt-attrbute-to-img-element-if-needed"></span>
 
 `alt`属性は、画像を表示できなかったり、画像の読み込みを無効にしている環境へ助けになります。
 
@@ -1841,7 +1841,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 [1]: https://html.spec.whatwg.org/multipage/images.html#alt
 
 
-### 可能ならば`alt`属性は空にする
+### 可能ならば`alt`属性は空にする<span id="empty-alt-attribute-if-possible"></span>
 
 画像が補助的なものならば、きっと周囲に同等のコンテンツが存在するはずです。
 
@@ -1860,7 +1860,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 「補助的」という言葉は曖昧で、判断に迷うこともあります。ブラウザーやOSに内蔵されているスクリーン・リーダーをうまく使って確認し、適切な値を`alt`属性へ指定しましょう。
 
 
-### 可能ならば`alt`属性は省略する
+### 可能ならば`alt`属性は省略する<span id="omit-alt-attribute-if-possible"></span>
 
 たまにどのような文字列が適切な`alt`属性の値かわからない場合もあります。
 
@@ -1882,7 +1882,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 `alt`属性を省略する場合も、ただ省略するだけで良いわけではありません。`figcaption`要素によるキャプションか、良い例で挙げたように`title`属性による画像そのものの簡単な説明が必要です。
 
 
-### `iframe`要素の中は空にする
+### `iframe`要素の中は空にする<span id="empty-iframe-element"></span>
 
 その内容にはいくつかの制限があります。空にすれば安全です。
 
@@ -1911,7 +1911,7 @@ HTML 4.01では、フレームをサポートしないブラウザーが考慮�
 使い分けるということも難しいですし、ほとんど形骸化した代替コンテンツを提供する意味はもはやありません。`iframe`要素の中身は空にしておきましょう。
 
 
-### `map`要素の中はマークアップする
+### `map`要素の中はマークアップする<span id="markup-map-element-content"></span>
 
 その中身はスクリーン・リーダーへ提供されます。
 
@@ -1944,7 +1944,7 @@ HTML 4.01では、フレームをサポートしないブラウザーが考慮�
 しかし、ブラウザーでないツールでは話が変わってきます。例えばスクリーン・リーダーは、その仕組み上インタラクティブにクリッカブル・マップを扱うことは難しいでしょう。そのため`map`要素の中身を普通のコンテンツとして読み上げます。良い例で挙げたように`p`要素で済む場合もありますが、`ol`要素を使ったり、場合によっては`table`要素を使うかもしれません。いずれにせよきちんとマークアップしないと、適切に読み上げられないでしょう。
 
 
-### `audio`や`video`要素にフォールバックのためのコンテンツを提供する
+### `audio`や`video`要素にフォールバックのためのコンテンツを提供する<span id="provide-fallback-content-for-audio-or-video-element"></span>
 
 HTMLで新しく作られた要素にはフォールバックのためのコンテンツが必要です。
 
@@ -1972,7 +1972,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
 
 ## テーブルデータ
 
-### 1行に1つのセルを書く
+### 1行に1つのセルを書く<span id="write-one-cell-per-line"></span>
 
 長い行は把握しづらいです。
 
@@ -1996,7 +1996,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
 [1]: write-one-list-item-per-line.ja.md
 
 
-### 見出しセルには`th`要素を使う
+### 見出しセルには`th`要素を使う<span id="use-th-element-for-header-cell"></span>
 
 避ける理由はないでしょう。
 
@@ -2059,7 +2059,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
 
 ## フォーム
 
-### フォームコントロールは`label`要素で括る
+### フォームコントロールは`label`要素で括る<span id="wrap-form-control-with-label-element"></span>
 
 `label`要素はフォーム要素へフォーカスを当てるのに役立ちます。
 
@@ -2078,7 +2078,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
 HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`for`属性を使うことは構いません。しかし、できる限り括ってやることで簡潔でわかりやすいHTMLコードに、そして使いやすいウェブページになるはずです。また、ウェブページごとにユニークであるべき`id`属性の値を考えずに済むので、ウェブサイトごとにそういったユニークな値を管理せずに済むという点も見逃せないでしょう。
 
 
-### 可能ならば`for`属性は省略する
+### 可能ならば`for`属性は省略する<span id="omit-for-attribute-if-possible"></span>
 
 `label`要素はいくつかのフォーム要素を含められます。
 
@@ -2096,7 +2096,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 [1]: wrap-form-control-with-label-element.ja.md
 
 
-### `input`要素では適切な`type`属性を使う
+### `input`要素では適切な`type`属性を使う<span id="use-appropriate-type-attribute-for-input-element"></span>
 
 適切な`type`属性により、ブラウザーは`input`要素へちょっとした機能を与えてくれます。
 
@@ -2117,7 +2117,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 どれくらい便利になるかはアプリケーションの実装に依存しますが、不便になるということはまずありません。積極的に採用し、少しでもユーザーの手間を減らしましょう。
 
 
-### `input type="submit"`には`value`属性を追加する
+### `input type="submit"`には`value`属性を追加する<span id="add-value-attribute-to-input-typesubmit"></span>
 
 送信ボタンは、そのデフォルトのラベルがブラウザーや言語設定によって変わってしまいます。
 
@@ -2140,7 +2140,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 `value`属性を使うとこの送信ボタンに表示される文字列を変えられます。良い例で挙げたように「検索」とすることで、このボタンが設置されているフォームが検索フォームであることがわかりますし、送信した結果として検索結果が表示されることが期待できるでしょう。つまり、よりユーザーにわかりやすいフォームとなるわけです。
 
 
-### `pattern`属性を持つ`input`要素には`title`属性を追加する
+### `pattern`属性を持つ`input`要素には`title`属性を追加する<span id="add-title-attribute-to-input-element-when-there-is-pattern-attribute"></span>
 
 もし入力したテキストが`pattern`属性にマッチしない場合、`title`属性の値がヒントとして表示されます。
 
@@ -2161,7 +2161,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 実際のフォームでは入力要素の前後に入力形式の指定を書くことがあり、そこで説明すればインタラクションを要する`title`属性に依存せずにも済みます。しかし基本的な形式を前後に書いた上で、`title`属性でよくあるミスやより詳細な形式について言及するなど、一定以上の利用価値はあるはずです。
 
 
-### `placeholder`属性をラベル付けに使わない
+### `placeholder`属性をラベル付けに使わない<span id="dont-use-placeholder-attribute-for-labeling"></span>
 
 `label`要素がラベルのためにあり、`placeholder`属性は短いヒントのためにあります。
 
@@ -2182,7 +2182,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 そもそも`placeholder`属性が必要なのか、から考えることも必要でしょう。その上で良い例で挙げたように`label`要素を使いつつ、簡単な入力例などにのみ利用しましょう。
 
 
-### `option`要素は1行に1つ書く
+### `option`要素は1行に1つ書く<span id="write-one-option-element-per-line"></span>
 
 長い行は把握しづらいです。
 
@@ -2206,7 +2206,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 [1]: write-one-list-item-per-line.ja.md
 
 
-### `progress`要素には`max`属性を追加する
+### `progress`要素には`max`属性を追加する<span id="add-max-attribute-to-progress-element"></span>
 
 `max`属性があると、`value`属性を簡単な形式で書けます。
 
@@ -2225,7 +2225,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 このことは`progress`や`meter`要素をJavaScriptで操作する時にもメリットがあります。悪い例で挙げたように`max`属性がないと、`value`属性の値と中身のために、数字を整形するコードを書き分けなければなりません。良い例で挙げたように両者を同じ数字で扱えるようにしておけば、より簡潔にコードが書けるはずです。
 
 
-### `meter`要素では`min`及び`max`属性を追加する
+### `meter`要素では`min`及び`max`属性を追加する<span id="add-min-and-max-attribute-to-meter-element"></span>
 
 `min`と`max`属性があると、`value`属性を簡単な形式で書けます。
 
@@ -2243,7 +2243,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 [1]: add-max-attribute-to-progress-element.ja.md
 
 
-### `legend`要素は`fieldset`要素の最初に置く
+### `legend`要素は`fieldset`要素の最初に置く<span id="place-legend-element-as-the-first-child-of-fieldset-element"></span>
 
 仕様がそう要求しています。
 
@@ -2270,7 +2270,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 
 ## スクリプティング
 
-### JavaScriptでは`type`属性を省略する
+### JavaScriptでは`type`属性を省略する<span id="omit-type-attribute-for-javascript"></span>
 
 HTMLでは、`script`要素における`type`属性の初期値は`text/javascript`です。
 
@@ -2292,7 +2292,7 @@ HTMLでは、`script`要素における`type`属性の初期値は`text/javascri
 [1]: omit-type-attribute-for-css.ja.md
 
 
-### `script`要素の中をコメントアウトしない
+### `script`要素の中をコメントアウトしない<span id="dont-comment-out-contents-of-script-element"></span>
 
 この儀式は古いブラウザーのためです。
 
@@ -2341,7 +2341,7 @@ CDATAセクションでスクリプト全体を括った上で、CDATAセクシ�
 特に奇抜なことをせず、良い例で挙げたようにそのまま書くだけできちんと解釈してもらえます。
 
 
-### `script`要素を動的に生成するテクニックを使わない
+### `script`要素を動的に生成するテクニックを使わない<span id="dont-use-script-injected-script-element"></span>
 
 明快さとパフォーマンスの両面で`async`属性が最良です。
 
@@ -2370,7 +2370,7 @@ Google Analyticsを始め、多くのサードパーティー製JavaScriptアプ
 
 ## その他
 
-### 一貫した量でインデントする
+### 一貫した量でインデントする<span id="indent-consistently"></span>
 
 インデントは読みやすさにおいて重要です。
 
@@ -2403,7 +2403,7 @@ HTML文書はツリー構造です。タグを省略しない場合、インデ�
 インデントに使う文字として、タブとスペースは一長一短で、優劣はありません。タブの場合はコード・サイズが少なく済みますが、環境にインデント量が依存します。スペースは環境に依存しませんが、コード・サイズは増えます。どちらがメジャーかということもこのままフォーマッターが浸透していくとツール次第になるでしょうし、統一さえされていればどちらでも良いでしょう。悪い例で挙げたようなタブとスペースを混ぜるなどということだけは*絶対に*避けるべきです。
 
 
-### 内部リンクには絶対パスを使う
+### 内部リンクには絶対パスを使う<span id="use-absolute-path-for-internal-links"></span>
 
 絶対パスはインターネット回線のないローカルの環境でもうまく動きます。
 
@@ -2426,7 +2426,7 @@ HTML文書に書かれたURLは、そのHTML文書のURLを元に解決される
 絶対パス（スラッシュで始まるパス）は多少の冗長さと引き換えになりますが、どのリソースからもどのリソースへも同じ文字列でリンクできます。リソースの移動には書き換えはもちろん必要ですが、一括置換で対処できるでしょう。また`http:`から`https:`へ切り替えようと考えている場合にもそのままで運用を続けられるはずです。
 
 
-### 外部リソースにはプロトコル相対URLを使わない
+### 外部リソースにはプロトコル相対URLを使わない<span id="dont-use-protocol-relative-url-for-external-resources"></span>
 
 プロトコルを指定すると、外部リソースを確実かつ安全に読み込めます。
 

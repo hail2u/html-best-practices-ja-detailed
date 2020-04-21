@@ -1,15 +1,9 @@
+import { escapeCharacters } from "./lib/character-reference.js";
 import { promises as fs } from "fs";
 import marked from "marked";
 import mustache from "mustache";
+import { readJSONFile } from "./lib/json-file.js";
 
-const characters = {
-	'"': "&quot;",
-	"&": "&amp;",
-	"'": "&apos;",
-	"<": "&lt;",
-	">": "&gt;"
-};
-const charactersRe = /[<>"']|&(?!#?\w+;)/g;
 const files = [
 	{
 		dest: "README.md",
@@ -21,19 +15,19 @@ const files = [
 	}
 ];
 
-const escape = (c) => characters[c];
-
 const readPractice = async (id) => {
 	const md = await fs.readFile(`practices/${id}.md`, "utf8");
 	const [title, ...body] = md.split("\n");
+	const strBody = body.join("\n").trim();
+	const strTitle = title.replace(/^# /, "");
 	return {
-		body: marked(body.join("\n").trim()),
+		body: marked(strBody),
 		id: id,
-		strBody: body.join("\n").trim(),
-		strTitle: title.replace(/^# /, ""),
-		title: marked(title)
+		strBody: strBody,
+		strTitle: strTitle,
+		title: marked(strTitle)
 			.trim()
-			.replace(/^<h1 .*?>(.*?)<\/h1>$/, "$1")
+			.replace(/^<p>(.*?)<\/p>$/, "$1")
 	};
 };
 
@@ -44,11 +38,10 @@ const extendSection = async (section) => ({
 });
 
 const main = async ({ dest, src }) => {
-	const [template, json] = await Promise.all([
+	const [template, data] = await Promise.all([
 		fs.readFile(src, "utf8"),
-		fs.readFile("index.json", "utf8")
+		readJSONFile("index.json")
 	]);
-	const data = JSON.parse(json);
 	const sections = await Promise.all(data.sections.map(extendSection));
 	const rendered = mustache.render(template, {
 		...data,
@@ -57,7 +50,7 @@ const main = async ({ dest, src }) => {
 	await fs.writeFile(dest, rendered);
 };
 
-mustache.escape = (text) => String(text).replace(charactersRe, escape);
+mustache.escape = escapeCharacters;
 Promise.all(files.map(main)).catch((e) => {
 	console.trace(e);
 	process.exitCode = 1;

@@ -121,7 +121,7 @@
 				"markup-map-element-content",
 				"provide-fallback-content-for-audio-or-video-element"
 			],
-			"title": "エンベディッドコンテンツ"
+			"title": "埋め込みコンテンツ"
 		},
 		{
 			"id": "tabular-data",

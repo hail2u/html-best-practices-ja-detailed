@@ -73,7 +73,7 @@
     - [見た目だけのために`br`要素を使わない](#dont-use-br-element-only-for-presentational-purpose)
 - 編集
     - [`ins`や`del`要素は他の要素をまたがせない](#dont-stride-ins-and-del-element-over-other-elements)
-- エンベディッドコンテンツ
+- 埋め込みコンテンツ
     - [`picture`要素ではフォールバックのための`img`要素を提供する](#provide-fallback-img-element-for-picture-element)
     - [必要な時は`img`要素へ`alt`属性を追加する](#add-alt-attrbute-to-img-element-if-needed)
     - [可能ならば`alt`属性は空にする](#empty-alt-attribute-if-possible)
@@ -1737,7 +1737,7 @@ HTMLコードにおいて改行を必要とするケースはほとんどあり�
 良い例で挙げたように要素内で完結するように分割してマークアップします。`ins`と`del`要素では他にも文法上は間違いではないにも関わらず、特定の条件下では推奨されない書き方があります。できるかぎり分割してマークアップすると、そういった推奨されない書き方もうまく避けられるでしょう。
 
 
-## エンベディッドコンテンツ
+## 埋め込みコンテンツ
 
 ### `picture`要素ではフォールバックのための`img`要素を提供する<span id="provide-fallback-img-element-for-picture-element"></span>
 

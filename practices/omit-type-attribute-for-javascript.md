@@ -14,7 +14,4 @@ HTMLでは、`script`要素における`type`属性の初期値は`text/javascri
       ...
     </script>
 
-「[CSSの`type`属性は省略する][1]」を参照してください。
-
-
-[1]: omit-type-attribute-for-css.ja.md
+「[CSSの`type`属性は省略する](omit-type-attribute-for-css.ja.md)」を参照してください。

@@ -15,6 +15,4 @@
       <title>HTML Best Practices</title>
     </head>
 
-「[UTF-8を使う][1]」を参照してください。
-
-[1]: use-utf-8.ja.md
+「[UTF-8を使う](use-utf-8.ja.md)」を参照してください。

@@ -19,6 +19,4 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
       <iframe src="//www.youtube.com/embed/..." allowfullscreen></iframe>
     </video>
 
-「[`picture`要素ではフォールバックのための`img`要素を提供する][1]」を参照してください。
-
-[1]: provide-fallback-img-element-for-picture-element.ja.md
+「[`picture`要素ではフォールバックのための`img`要素を提供する](provide-fallback-img-element-for-picture-element.ja.md)」を参照してください。

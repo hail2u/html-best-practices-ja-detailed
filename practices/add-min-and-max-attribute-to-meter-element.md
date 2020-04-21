@@ -10,7 +10,4 @@
 
     <meter min="0" max="1024" value="512"> 512GB used (1024GB total)</meter>
 
-「[`progress`要素には`max`属性を追加する][1]」を参照してください。
-
-
-[1]: add-max-attribute-to-progress-element.ja.md
+「[`progress`要素には`max`属性を追加する](add-max-attribute-to-progress-element.ja.md)」を参照してください。

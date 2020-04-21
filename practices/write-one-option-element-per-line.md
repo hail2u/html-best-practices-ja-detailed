@@ -16,7 +16,4 @@
       <option label="Sections">
     </datalist>
 
-「[リスト項目は1行に1つずつ書く][1]」を参照してください。
-
-
-[1]: write-one-list-item-per-line.ja.md
+「[リスト項目は1行に1つずつ書く](write-one-list-item-per-line.ja.md)」を参照してください。

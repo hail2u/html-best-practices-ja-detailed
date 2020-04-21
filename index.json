@@ -1,5 +1,15 @@
 {
 	"description": "保守しやすく、規模に依存しないHTML文書のために",
+	"files": [
+		{
+			"dest": "README.md",
+			"src": "readme.mustache"
+		},
+		{
+			"dest": "index.html",
+			"src": "index.mustache"
+		}
+	],
 	"license": {
 		"name": "CC0",
 		"url": "http://creativecommons.org/publicdomain/zero/1.0/"

@@ -4,17 +4,6 @@ import marked from "marked";
 import mustache from "mustache";
 import { readJSONFile } from "./lib/json-file.js";
 
-const files = [
-	{
-		dest: "README.md",
-		src: "readme.mustache"
-	},
-	{
-		dest: "index.html",
-		src: "index.mustache"
-	}
-];
-
 const readPractice = async (id) => {
 	const md = await fs.readFile(`practices/${id}.md`, "utf8");
 	const [title, ...body] = md.split("\n");
@@ -37,21 +26,26 @@ const extendSection = async (section) => ({
 	strTitle: section.title
 });
 
-const main = async ({ dest, src }) => {
-	const [template, data] = await Promise.all([
-		fs.readFile(src, "utf8"),
-		readJSONFile("index.json")
-	]);
-	const sections = await Promise.all(data.sections.map(extendSection));
+const render = async (data, { extra = {}, dest, src }) => {
+	const template = await fs.readFile(src, "utf8");
 	const rendered = mustache.render(template, {
 		...data,
-		sections: sections
+		...extra
 	});
 	await fs.writeFile(dest, rendered);
 };
 
+const main = async () => {
+	const data = await readJSONFile("index.json");
+	const sections = await Promise.all(data.sections.map(extendSection));
+	await Promise.all(data.files.map(render.bind(null, {
+		...data,
+		sections: sections
+	})));
+};
+
 mustache.escape = escapeCharacters;
-Promise.all(files.map(main)).catch((e) => {
+main().catch((e) => {
 	console.trace(e);
 	process.exitCode = 1;
 });

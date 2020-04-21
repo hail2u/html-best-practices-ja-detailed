@@ -10,7 +10,7 @@
 
     <a href="/ja/pdf" hreflang="ja" rel="alternate" type="application/pdf">Japanese PDF version</a>
 
-`a`要素には[`download`属性](use-download-attribute-for-downloading-a-resource.ja.md)以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。
+`a`要素には[`download`属性](#use-download-attribute-for-downloading-a-resource)以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。
 
 良い例で挙げたように書くと、リンク先について以下の点がはっきりします。
 

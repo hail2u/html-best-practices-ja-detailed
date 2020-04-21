@@ -10,4 +10,4 @@
 
     <label>Query: <input name="q" type="text"></label>
 
-「[フォームコントロールは`label`要素で括る](wrap-form-control-with-label-element.ja.md)」を参照してください。
+「[フォームコントロールは`label`要素で括る](#wrap-form-control-with-label-element)」を参照してください。

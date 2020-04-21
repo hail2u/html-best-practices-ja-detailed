@@ -12,7 +12,7 @@
     <img alt="HTML Best Practices" src="/img/logo.png">
     <hr>
 
-[XML宣言の項](dont-use-xml-declaration.ja.md)において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。
+[XML宣言の項](#dont-use-xml-declaration)において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。
 
     <hr>
     <br/>

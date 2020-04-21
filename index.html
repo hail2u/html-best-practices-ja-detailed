@@ -202,7 +202,7 @@
 <pre><code>&lt;hr&gt;
 &lt;hr/&gt;
 &lt;hr /&gt;</code></pre><p>この3種類の<code>hr</code>タグの書き方はどれも仕様においては間違いではありません。例え同じHTML文書内でバラバラの書き方をされていても、です。</p>
-<p>このようにHTML 4.01に近い書き方のHTML文書であろうと、XHTML 1.1に近い書き方のHTML文書であろうと、両者が混ざったHTML文書であろうと、HTML構文としてきちんとパースできるよう仕様では定義されています。もちろん現行のブラウザーも問題なくパースし、レンダリングしてくれるでしょう。XML宣言の実用的な機能である文字エンコーディングの指定は<a href="specify-document-character-encoding.ja.md">別に行えること</a>も考慮すると、自然とXML宣言は不要だという結論になります。</p>
+<p>このようにHTML 4.01に近い書き方のHTML文書であろうと、XHTML 1.1に近い書き方のHTML文書であろうと、両者が混ざったHTML文書であろうと、HTML構文としてきちんとパースできるよう仕様では定義されています。もちろん現行のブラウザーも問題なくパースし、レンダリングしてくれるでしょう。XML宣言の実用的な機能である文字エンコーディングの指定は<a href="#specify-document-character-encoding">別に行えること</a>も考慮すると、自然とXML宣言は不要だという結論になります。</p>
 
 						</section>
 						<section id="dont-use-character-references-as-much-as-possible">
@@ -216,7 +216,7 @@
 <blockquote>
 <p>これは、他の方法で合法的にテキストに含めることができない文字をエスケープするために使用できる。</p>
 </blockquote>
-<p>仕様ではこのような表現になっているので、どうしてもという場合ではない限り使わない方が良い、と考えた方が無難です。つまり<a href="use-utf8.ja.md">UTF-8の利用</a>を前提とすると、表現できない文字というものがまずないため、文字参照を使う機会もまたまずありません。</p>
+<p>仕様ではこのような表現になっているので、どうしてもという場合ではない限り使わない方が良い、と考えた方が無難です。つまり<a href="#use-utf8">UTF-8の利用</a>を前提とすると、表現できない文字というものがまずないため、文字参照を使う機会もまたまずありません。</p>
 <p>伝統的に名前文字参照（HTML 4.01仕様では文字実体参照）を使っていたような文字もそのまま書いて問題ありません。良い例で挙げたのようにコピーライト・マークや登録商標マークもそのまま書けば、読みやすいHTML文書になるはずです。</p>
 
 						</section>
@@ -348,7 +348,7 @@
 <pre><code>&lt;img alt=&quot;HTML Best Practices&quot; src=&quot;/img/logo.png&quot;&gt;
 &lt;hr /&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;img alt=&quot;HTML Best Practices&quot; src=&quot;/img/logo.png&quot;&gt;
-&lt;hr&gt;</code></pre><p><a href="dont-use-xml-declaration.ja.md">XML宣言の項</a>において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。</p>
+&lt;hr&gt;</code></pre><p><a href="#dont-use-xml-declaration">XML宣言の項</a>において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。</p>
 <pre><code>&lt;hr&gt;
 &lt;br/&gt;
 &lt;img alt=&quot;赤いチューリップ畑&quot; src=&quot;red.png&quot; /&gt;</code></pre><p>間違いではないというのはあくまでも文法においてであり、同じHTML文書において違う書き方を混ぜるのは読みやすいとはとても言えません。</p>
@@ -450,7 +450,7 @@
 <pre><code>&lt;span lang=&quot;ja&quot; xml:lang=&quot;ja&quot;&gt;...&lt;/span&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;span lang=&quot;ja&quot;&gt;...&lt;/span&gt;</code></pre><p>XHTML 1.xでは、必要に応じてXML属性も併記する必要がありました。例えば<code>lang</code>属性を使用する場合には、悪い例で挙げたように同じ値の<code>xml:lang</code>属性も併記する、と指示されています。</p>
 <p>現在のHTMLでは、この<code>lang</code>属性と<code>xml:lang</code>属性についてわざわざ項が割かれています。おおまかに抜粋すると、HTML文書では書いてはならないとされており、XML文書でも書いても良い（MAY）程度に変更されています。</p>
-<p>HTML文書を書き、<a href="omit-namespaces.ja.md">名前空間を使わないと</a>、事実上<code>xml:lang</code>属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。</p>
+<p>HTML文書を書き、<a href="#omit-namespaces">名前空間を使わないと</a>、事実上<code>xml:lang</code>属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。</p>
 
 						</section>
 						<section id="dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes">
@@ -666,7 +666,7 @@
 <pre><code>&lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
   &lt;title&gt;HTML Best Practices&lt;/title&gt;
-&lt;/head&gt;</code></pre><p>「<a href="use-utf-8.ja.md">UTF-8を使う</a>」を参照してください。</p>
+&lt;/head&gt;</code></pre><p>「<a href="#use-utf-8">UTF-8を使う</a>」を参照してください。</p>
 
 						</section>
 						<section id="dont-use-legacy-character-encoding-format">
@@ -708,7 +708,7 @@
 <pre><code>&lt;meta charset=&quot;Shift_JIS&quot;&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre><p>HTMLはそれだけではなく、CSSやJavaScriptと共に配信されるものです。そのためそれらは密接に関わり合うことになります。それは単に機能や見た目でというだけでなく、コードというレベルでもそうです。その代表的な関わり合いのひとつがファイルの文字コードでしょう。</p>
 <p>ウェブでは様々な文字コードが用いられていました。過去にはほとんどの人がWindowsのパソコンで制作していたこともあり、よくシフトJISが利用されていましたが、CGIによるサーバーサイドでの動的なウェブページの作成においては多くの問題が起こるため、そういったウェブページではEUC-JPが使われていました。シフトJISとEUC-JPのどちらが優れているかは様々な問題が絡むため一概には言えませんでしたが、現在は、明らかなデメリットがないUnicodeの符号化形式のひとつであるUTF-8が広く使われるようになっています。</p>
-<p>しかし、その一方でブラウザーがデフォルトで利用する文字コードはUTF-8では統一されていません。またユーザーの設定にも依存します。多くのブラウザーは自動判別をしてくれますが、それも確実であるとは言えません。そのため単に<a href="dont-use-legacy-character-encoding-format.ja.md">UTF-8で書く</a>だけではなく、UTF-8で書かれていることをHTML文書で明示的に宣言してやる必要があります。</p>
+<p>しかし、その一方でブラウザーがデフォルトで利用する文字コードはUTF-8では統一されていません。またユーザーの設定にも依存します。多くのブラウザーは自動判別をしてくれますが、それも確実であるとは言えません。そのため単に<a href="#dont-use-legacy-character-encoding-format">UTF-8で書く</a>だけではなく、UTF-8で書かれていることをHTML文書で明示的に宣言してやる必要があります。</p>
 <p>現在のHTML仕様では、良い例で挙げたように、ごく短い記述でHTML文書の文字コードを指定できます。これでブラウザーを始めとしたあらゆるツールが適切にHTML文書を解釈できるでしょう。また、文字コードを明示的に指定すれば、<a href="http://openmya.hacker.jp/hasegawa/security/utf7cs.html">以前にあったセキュリティ上の問題</a>も起こりづらくなります。</p>
 <p>また、仕様では<code>charset</code>属性の値として「UTF-8」以外は許可されていません。その上、HTML文書の文字エンコーディングはUTF-8でなければならないとも明言されています。Emojiを自由に使えるなどの実用上のメリットからも必ずUTF-8で書き、良い例で挙げたように文字エンコーディングを明示してやりましょう。</p>
 
@@ -740,7 +740,7 @@
 &lt;/style&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;style&gt;
   ...
-&lt;/style&gt;</code></pre><p>「<a href="dont-comment-out-contents-of-script-element.ja.md"><code>script</code>要素の中をコメントアウトしない</a>」を参照してください。</p>
+&lt;/style&gt;</code></pre><p>「<a href="#dont-comment-out-contents-of-script-element"><code>script</code>要素の中をコメントアウトしない</a>」を参照してください。</p>
 
 						</section>
 						<section id="dont-mix-tag-for-css-and-javascript">
@@ -1093,7 +1093,7 @@ function isArray(o) {
 							<p>これらのヒントは、アプリケーションがリンク先のリソースをどう扱えば良いのかの助けになります。</p>
 <p>悪い例:</p>
 <pre><code>&lt;a href=&quot;/ja/pdf&quot;&gt;Japanese PDF version&lt;/a&gt;</code></pre><p>良い例:</p>
-<pre><code>&lt;a href=&quot;/ja/pdf&quot; hreflang=&quot;ja&quot; rel=&quot;alternate&quot; type=&quot;application/pdf&quot;&gt;Japanese PDF version&lt;/a&gt;</code></pre><p><code>a</code>要素には<a href="use-download-attribute-for-downloading-a-resource.ja.md"><code>download</code>属性</a>以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。</p>
+<pre><code>&lt;a href=&quot;/ja/pdf&quot; hreflang=&quot;ja&quot; rel=&quot;alternate&quot; type=&quot;application/pdf&quot;&gt;Japanese PDF version&lt;/a&gt;</code></pre><p><code>a</code>要素には<a href="#use-download-attribute-for-downloading-a-resource"><code>download</code>属性</a>以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。</p>
 <p>良い例で挙げたように書くと、リンク先について以下の点がはっきりします。</p>
 <ul>
 <li>日本語であること</li>
@@ -1205,7 +1205,7 @@ function isArray(o) {
 <p>悪い例:</p>
 <pre><code>&lt;kbd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;F5&lt;/kbd&gt;&lt;/kbd&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;kbd&gt;Ctrl+F5&lt;/kbd&gt;</code></pre><p><code>kbd</code>要素は、うまく組み合わせると複雑なキー入力を正確に表現できます。しかしその結果として悪い例で挙げたようにとても煩雑なものになってしまいます。これが実際に何かの役に立つかどうかは未知の世界ですが、仕様の例示では良い例で挙げたように簡潔なものでも構わない、とされています。</p>
-<p><a href="markup-ruby-element-verbosely.ja.md"><code>ruby</code>要素の場合</a>は既に存在する環境への配慮として、複雑にするべきでした。しかし、<code>kbd</code>要素の場合はまだ存在しない環境への配慮になります。コストの割りに得るものがなく、将来も得られるかわからないため、割り切ってしまって良いでしょう。</p>
+<p><a href="#markup-ruby-element-verbosely"><code>ruby</code>要素の場合</a>は既に存在する環境への配慮として、複雑にするべきでした。しかし、<code>kbd</code>要素の場合はまだ存在しない環境への配慮になります。コストの割りに得るものがなく、将来も得られるかわからないため、割り切ってしまって良いでしょう。</p>
 
 						</section>
 						<section id="avoid-span-element-as-much-as-possible">
@@ -1214,7 +1214,7 @@ function isArray(o) {
 							<p><code>span</code>要素は最後の手段です。</p>
 <p>悪い例:</p>
 <pre><code>HTML &lt;span class=&quot;best&quot;&gt;Best&lt;/span&gt; Practices</code></pre><p>良い例:</p>
-<pre><code>HTML &lt;em&gt;Best&lt;/em&gt; Practices</code></pre><p>「<a href="avoid-div-element-as-much-as-possible.ja.md">できる限り<code>div</code>要素は避ける</a>」を参照してください。</p>
+<pre><code>HTML &lt;em&gt;Best&lt;/em&gt; Practices</code></pre><p>「<a href="#avoid-div-element-as-much-as-possible">できる限り<code>div</code>要素は避ける</a>」を参照してください。</p>
 
 						</section>
 						<section id="break-after-br-element">
@@ -1381,7 +1381,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
   &lt;source src=&quot;/mov/theme.ogv&quot; type=&quot;video/ogg&quot;&gt;
   ...
   &lt;iframe src=&quot;//www.youtube.com/embed/...&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/video&gt;</code></pre><p>「<a href="provide-fallback-img-element-for-picture-element.ja.md"><code>picture</code>要素ではフォールバックのための<code>img</code>要素を提供する</a>」を参照してください。</p>
+&lt;/video&gt;</code></pre><p>「<a href="#provide-fallback-img-element-for-picture-element"><code>picture</code>要素ではフォールバックのための<code>img</code>要素を提供する</a>」を参照してください。</p>
 
 						</section>
 				</section>
@@ -1400,7 +1400,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
   &lt;td&gt;General&lt;/td&gt;
   &lt;td&gt;The root Element&lt;/td&gt;
   &lt;td&gt;Sections&lt;/td&gt;
-&lt;/tr&gt;</code></pre><p>「<a href="write-one-list-item-per-line.ja.md">リスト項目は1行に1つずつ書く</a>」を参照してください。</p>
+&lt;/tr&gt;</code></pre><p>「<a href="#write-one-list-item-per-line">リスト項目は1行に1つずつ書く</a>」を参照してください。</p>
 
 						</section>
 						<section id="use-th-element-for-header-cell">
@@ -1476,7 +1476,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
 							<p><code>label</code>要素はいくつかのフォーム要素を含められます。</p>
 <p>悪い例:</p>
 <pre><code>&lt;label for=&quot;q&quot;&gt;Query: &lt;/label&gt;&lt;input id=&quot;q&quot; name=&quot;q&quot; type=&quot;text&quot;&gt;</code></pre><p>良い例:</p>
-<pre><code>&lt;label&gt;Query: &lt;input name=&quot;q&quot; type=&quot;text&quot;&gt;&lt;/label&gt;</code></pre><p>「<a href="wrap-form-control-with-label-element.ja.md">フォームコントロールは<code>label</code>要素で括る</a>」を参照してください。</p>
+<pre><code>&lt;label&gt;Query: &lt;input name=&quot;q&quot; type=&quot;text&quot;&gt;&lt;/label&gt;</code></pre><p>「<a href="#wrap-form-control-with-label-element">フォームコントロールは<code>label</code>要素で括る</a>」を参照してください。</p>
 
 						</section>
 						<section id="use-appropriate-type-attribute-for-input-element">
@@ -1540,7 +1540,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
   &lt;option label=&quot;General&quot;&gt;
   &lt;option label=&quot;The root element&quot;&gt;
   &lt;option label=&quot;Sections&quot;&gt;
-&lt;/datalist&gt;</code></pre><p>「<a href="write-one-list-item-per-line.ja.md">リスト項目は1行に1つずつ書く</a>」を参照してください。</p>
+&lt;/datalist&gt;</code></pre><p>「<a href="#write-one-list-item-per-line">リスト項目は1行に1つずつ書く</a>」を参照してください。</p>
 
 						</section>
 						<section id="add-max-attribute-to-progress-element">
@@ -1560,7 +1560,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
 							<p><code>min</code>と<code>max</code>属性があると、<code>value</code>属性を簡単な形式で書けます。</p>
 <p>悪い例:</p>
 <pre><code>&lt;meter value=&quot;0.5&quot;&gt; 512GB used (1024GB total)&lt;/meter&gt;</code></pre><p>良い例:</p>
-<pre><code>&lt;meter min=&quot;0&quot; max=&quot;1024&quot; value=&quot;512&quot;&gt; 512GB used (1024GB total)&lt;/meter&gt;</code></pre><p>「<a href="add-max-attribute-to-progress-element.ja.md"><code>progress</code>要素には<code>max</code>属性を追加する</a>」を参照してください。</p>
+<pre><code>&lt;meter min=&quot;0&quot; max=&quot;1024&quot; value=&quot;512&quot;&gt; 512GB used (1024GB total)&lt;/meter&gt;</code></pre><p>「<a href="#add-max-attribute-to-progress-element"><code>progress</code>要素には<code>max</code>属性を追加する</a>」を参照してください。</p>
 
 						</section>
 						<section id="place-legend-element-as-the-first-child-of-fieldset-element">
@@ -1595,7 +1595,7 @@ Tokyo&lt;/p&gt;</code></pre><p>ソース上でも改行し、コンテンツを�
 &lt;/script&gt;</code></pre><p>良い例:</p>
 <pre><code>&lt;script&gt;
   ...
-&lt;/script&gt;</code></pre><p>「<a href="omit-type-attribute-for-css.ja.md">CSSの<code>type</code>属性は省略する</a>」を参照してください。</p>
+&lt;/script&gt;</code></pre><p>「<a href="#omit-type-attribute-for-css">CSSの<code>type</code>属性は省略する</a>」を参照してください。</p>
 
 						</section>
 						<section id="dont-comment-out-contents-of-script-element">

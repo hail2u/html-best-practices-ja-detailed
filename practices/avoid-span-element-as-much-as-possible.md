@@ -10,4 +10,4 @@
 
     HTML <em>Best</em> Practices
 
-「[できる限り`div`要素は避ける](avoid-div-element-as-much-as-possible.ja.md)」を参照してください。
+「[できる限り`div`要素は避ける](#avoid-div-element-as-much-as-possible)」を参照してください。

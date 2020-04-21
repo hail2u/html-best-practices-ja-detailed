@@ -16,4 +16,4 @@
       ...
     </style>
 
-「[`script`要素の中をコメントアウトしない](dont-comment-out-contents-of-script-element.ja.md)」を参照してください。
+「[`script`要素の中をコメントアウトしない](#dont-comment-out-contents-of-script-element)」を参照してください。

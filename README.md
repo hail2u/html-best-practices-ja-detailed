@@ -174,7 +174,7 @@ XHTML 1.xでは、XML 1.0にも従うことが要求されます。そのためX
 
 この3種類の`hr`タグの書き方はどれも仕様においては間違いではありません。例え同じHTML文書内でバラバラの書き方をされていても、です。
 
-このようにHTML 4.01に近い書き方のHTML文書であろうと、XHTML 1.1に近い書き方のHTML文書であろうと、両者が混ざったHTML文書であろうと、HTML構文としてきちんとパースできるよう仕様では定義されています。もちろん現行のブラウザーも問題なくパースし、レンダリングしてくれるでしょう。XML宣言の実用的な機能である文字エンコーディングの指定は[別に行えること](specify-document-character-encoding.ja.md)も考慮すると、自然とXML宣言は不要だという結論になります。
+このようにHTML 4.01に近い書き方のHTML文書であろうと、XHTML 1.1に近い書き方のHTML文書であろうと、両者が混ざったHTML文書であろうと、HTML構文としてきちんとパースできるよう仕様では定義されています。もちろん現行のブラウザーも問題なくパースし、レンダリングしてくれるでしょう。XML宣言の実用的な機能である文字エンコーディングの指定は[別に行えること](#specify-document-character-encoding)も考慮すると、自然とXML宣言は不要だという結論になります。
 
 
 ### 文字参照はできる限り使わない<span id="dont-use-character-references-as-much-as-possible"></span>
@@ -195,7 +195,7 @@ HTML 4.01では、HTML文書で利用している文字コードで表現でき�
 
 > これは、他の方法で合法的にテキストに含めることができない文字をエスケープするために使用できる。
 
-仕様ではこのような表現になっているので、どうしてもという場合ではない限り使わない方が良い、と考えた方が無難です。つまり[UTF-8の利用](use-utf8.ja.md)を前提とすると、表現できない文字というものがまずないため、文字参照を使う機会もまたまずありません。
+仕様ではこのような表現になっているので、どうしてもという場合ではない限り使わない方が良い、と考えた方が無難です。つまり[UTF-8の利用](#use-utf8)を前提とすると、表現できない文字というものがまずないため、文字参照を使う機会もまたまずありません。
 
 伝統的に名前文字参照（HTML 4.01仕様では文字実体参照）を使っていたような文字もそのまま書いて問題ありません。良い例で挙げたのようにコピーライト・マークや登録商標マークもそのまま書けば、読みやすいHTML文書になるはずです。
 
@@ -329,7 +329,7 @@ HTML文書では、いくつかのルールに従って終了タグ（閉じタ�
     <img alt="HTML Best Practices" src="/img/logo.png">
     <hr>
 
-[XML宣言の項](dont-use-xml-declaration.ja.md)において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。
+[XML宣言の項](#dont-use-xml-declaration)において述べたように、現在のHTMLではXHTML 1.1の機能や特徴をいくつか取り込んでいます。空要素の書き方はその1つで、XHTML 1.1のようにスラッシュを追加して閉じても間違いではありません。
 
     <hr>
     <br/>
@@ -510,7 +510,7 @@ XHTML 1.xでは、必要に応じてXML属性も併記する必要がありま�
 
 現在のHTMLでは、この`lang`属性と`xml:lang`属性についてわざわざ項が割かれています。おおまかに抜粋すると、HTML文書では書いてはならないとされており、XML文書でも書いても良い（MAY）程度に変更されています。
 
-HTML文書を書き、[名前空間を使わないと](omit-namespaces.ja.md)、事実上`xml:lang`属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。
+HTML文書を書き、[名前空間を使わないと](#omit-namespaces)、事実上`xml:lang`属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。
 
 
 ### `data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない<span id="dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes"></span>
@@ -834,7 +834,7 @@ Facebookのいいねボタンのように、`meta`要素の利用が義務付け
       <title>HTML Best Practices</title>
     </head>
 
-「[UTF-8を使う](use-utf-8.ja.md)」を参照してください。
+「[UTF-8を使う](#use-utf-8)」を参照してください。
 
 
 ### 置き換えられるべき文字エンコーディング指定フォーマットを使わない<span id="dont-use-legacy-character-encoding-format"></span>
@@ -903,7 +903,7 @@ HTMLはそれだけではなく、CSSやJavaScriptと共に配信されるもの
 
 ウェブでは様々な文字コードが用いられていました。過去にはほとんどの人がWindowsのパソコンで制作していたこともあり、よくシフトJISが利用されていましたが、CGIによるサーバーサイドでの動的なウェブページの作成においては多くの問題が起こるため、そういったウェブページではEUC-JPが使われていました。シフトJISとEUC-JPのどちらが優れているかは様々な問題が絡むため一概には言えませんでしたが、現在は、明らかなデメリットがないUnicodeの符号化形式のひとつであるUTF-8が広く使われるようになっています。
 
-しかし、その一方でブラウザーがデフォルトで利用する文字コードはUTF-8では統一されていません。またユーザーの設定にも依存します。多くのブラウザーは自動判別をしてくれますが、それも確実であるとは言えません。そのため単に[UTF-8で書く](dont-use-legacy-character-encoding-format.ja.md)だけではなく、UTF-8で書かれていることをHTML文書で明示的に宣言してやる必要があります。
+しかし、その一方でブラウザーがデフォルトで利用する文字コードはUTF-8では統一されていません。またユーザーの設定にも依存します。多くのブラウザーは自動判別をしてくれますが、それも確実であるとは言えません。そのため単に[UTF-8で書く](#dont-use-legacy-character-encoding-format)だけではなく、UTF-8で書かれていることをHTML文書で明示的に宣言してやる必要があります。
 
 現在のHTML仕様では、良い例で挙げたように、ごく短い記述でHTML文書の文字コードを指定できます。これでブラウザーを始めとしたあらゆるツールが適切にHTML文書を解釈できるでしょう。また、文字コードを明示的に指定すれば、[以前にあったセキュリティ上の問題](http://openmya.hacker.jp/hasegawa/security/utf7cs.html)も起こりづらくなります。
 
@@ -951,7 +951,7 @@ CSSとJavaScriptを使うならば良い例で挙げたように`type`属性を�
       ...
     </style>
 
-「[`script`要素の中をコメントアウトしない](dont-comment-out-contents-of-script-element.ja.md)」を参照してください。
+「[`script`要素の中をコメントアウトしない](#dont-comment-out-contents-of-script-element)」を参照してください。
 
 
 ### CSSとJavaScriptのタグを混ぜない<span id="dont-mix-tag-for-css-and-javascript"></span>
@@ -1449,7 +1449,7 @@ CMSによる生成が主流となって以降、複数のセクションをま�
 
     <a href="/ja/pdf" hreflang="ja" rel="alternate" type="application/pdf">Japanese PDF version</a>
 
-`a`要素には[`download`属性](use-download-attribute-for-downloading-a-resource.ja.md)以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。
+`a`要素には[`download`属性](#use-download-attribute-for-downloading-a-resource)以外にもリンク先のリソースについての情報を提供する属性があります。悪い例で挙げたように書くと、そのページの日本語版PDFドキュメントへのリンクを張れますが、リンク先が日本語なのかどうか、PDFドキュメントなのかどうか、そもそも何の「Japanese PDF version」なのか、はっきりしません。このことは検索エンジンのクローラーやスクリーン・リーダーには致命的です。
 
 良い例で挙げたように書くと、リンク先について以下の点がはっきりします。
 
@@ -1644,7 +1644,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 
 `kbd`要素は、うまく組み合わせると複雑なキー入力を正確に表現できます。しかしその結果として悪い例で挙げたようにとても煩雑なものになってしまいます。これが実際に何かの役に立つかどうかは未知の世界ですが、仕様の例示では良い例で挙げたように簡潔なものでも構わない、とされています。
 
-[`ruby`要素の場合](markup-ruby-element-verbosely.ja.md)は既に存在する環境への配慮として、複雑にするべきでした。しかし、`kbd`要素の場合はまだ存在しない環境への配慮になります。コストの割りに得るものがなく、将来も得られるかわからないため、割り切ってしまって良いでしょう。
+[`ruby`要素の場合](#markup-ruby-element-verbosely)は既に存在する環境への配慮として、複雑にするべきでした。しかし、`kbd`要素の場合はまだ存在しない環境への配慮になります。コストの割りに得るものがなく、将来も得られるかわからないため、割り切ってしまって良いでしょう。
 
 
 ### できる限り`span`要素は使わない<span id="avoid-span-element-as-much-as-possible"></span>
@@ -1659,7 +1659,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 
     HTML <em>Best</em> Practices
 
-「[できる限り`div`要素は避ける](avoid-div-element-as-much-as-possible.ja.md)」を参照してください。
+「[できる限り`div`要素は避ける](#avoid-div-element-as-much-as-possible)」を参照してください。
 
 
 ### `br`要素の後ろでは改行する<span id="break-after-br-element"></span>
@@ -1907,7 +1907,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
       <iframe src="//www.youtube.com/embed/..." allowfullscreen></iframe>
     </video>
 
-「[`picture`要素ではフォールバックのための`img`要素を提供する](provide-fallback-img-element-for-picture-element.ja.md)」を参照してください。
+「[`picture`要素ではフォールバックのための`img`要素を提供する](#provide-fallback-img-element-for-picture-element)」を参照してください。
 
 
 ## テーブルデータ
@@ -1930,7 +1930,7 @@ HTMLで新しく作られた要素にはフォールバックのためのコン�
       <td>Sections</td>
     </tr>
 
-「[リスト項目は1行に1つずつ書く](write-one-list-item-per-line.ja.md)」を参照してください。
+「[リスト項目は1行に1つずつ書く](#write-one-list-item-per-line)」を参照してください。
 
 
 ### 見出しセルには`th`要素を使う<span id="use-th-element-for-header-cell"></span>
@@ -2027,7 +2027,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 
     <label>Query: <input name="q" type="text"></label>
 
-「[フォームコントロールは`label`要素で括る](wrap-form-control-with-label-element.ja.md)」を参照してください。
+「[フォームコントロールは`label`要素で括る](#wrap-form-control-with-label-element)」を参照してください。
 
 
 ### `input`要素では適切な`type`属性を使う<span id="use-appropriate-type-attribute-for-input-element"></span>
@@ -2134,7 +2134,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
       <option label="Sections">
     </datalist>
 
-「[リスト項目は1行に1つずつ書く](write-one-list-item-per-line.ja.md)」を参照してください。
+「[リスト項目は1行に1つずつ書く](#write-one-list-item-per-line)」を参照してください。
 
 
 ### `progress`要素には`max`属性を追加する<span id="add-max-attribute-to-progress-element"></span>
@@ -2168,7 +2168,7 @@ HTMLを出力するツールや、CSSを使ったレイアウトの都合で、`
 
     <meter min="0" max="1024" value="512"> 512GB used (1024GB total)</meter>
 
-「[`progress`要素には`max`属性を追加する](add-max-attribute-to-progress-element.ja.md)」を参照してください。
+「[`progress`要素には`max`属性を追加する](#add-max-attribute-to-progress-element)」を参照してください。
 
 
 ### `legend`要素は`fieldset`要素の最初に置く<span id="place-legend-element-as-the-first-child-of-fieldset-element"></span>
@@ -2214,7 +2214,7 @@ HTMLでは、`script`要素における`type`属性の初期値は`text/javascri
       ...
     </script>
 
-「[CSSの`type`属性は省略する](omit-type-attribute-for-css.ja.md)」を参照してください。
+「[CSSの`type`属性は省略する](#omit-type-attribute-for-css)」を参照してください。
 
 
 ### `script`要素の中をコメントアウトしない<span id="dont-comment-out-contents-of-script-element"></span>

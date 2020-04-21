@@ -16,4 +16,4 @@
       <td>Sections</td>
     </tr>
 
-「[リスト項目は1行に1つずつ書く](write-one-list-item-per-line.ja.md)」を参照してください。
+「[リスト項目は1行に1つずつ書く](#write-one-list-item-per-line)」を参照してください。

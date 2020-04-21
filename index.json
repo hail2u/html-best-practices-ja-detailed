@@ -12,7 +12,7 @@
 				"dont-use-legacy-or-obsolete-doctype",
 				"dont-use-xml-declaration",
 				"dont-use-character-references-as-much-as-possible",
-				"escape-----and--with-named-character-references",
+				"escape-amp-lt-gt-quot-and-apos-with-named-character-references",
 				"use-numeric-character-references-for-control-or-invisible-characters",
 				"put-white-spaces-around-comment-contents",
 				"dont-omit-closing-tag",
@@ -24,7 +24,7 @@
 				"omit-boolean-attribute-value",
 				"omit-namespaces",
 				"dont-use-xml-attributes",
-				"dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes",
+				"dont-mix-data-microdata-and-rdfa-lite-attributes-with-common-attributes",
 				"prefer-default-implicit-aria-semantics"
 			],
 			"title": "一般"
@@ -34,7 +34,7 @@
 			"practices": [
 				"add-lang-attribute",
 				"keep-lang-attribute-value-as-short-as-possible",
-				"avoid-data--as-much-as-possible"
+				"avoid-data-as-much-as-possible"
 			],
 			"title": "文書要素"
 		},
@@ -95,7 +95,7 @@
 				"add-title-attribute-to-abbr-element",
 				"markup-ruby-element-verbosely",
 				"add-datetime-attribute-to-non-machine-readable-time-element",
-				"specify-code-language-with-class-attribute-prefixed-with-language-",
+				"specify-code-language-with-class-attribute-prefixed-with-language",
 				"keep-kbd-element-as-simple-as-possible",
 				"avoid-span-element-as-much-as-possible",
 				"break-after-br-element",

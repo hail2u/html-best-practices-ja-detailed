@@ -24,7 +24,7 @@
 									<li><a href="#dont-use-legacy-or-obsolete-doctype">置き換えられるべきまたは旧式のDOCTYPEを使わない</a></li>
 									<li><a href="#dont-use-xml-declaration">XML宣言を使用しない</a></li>
 									<li><a href="#dont-use-character-references-as-much-as-possible">文字参照はできる限り使わない</a></li>
-									<li><a href="#escape-----and--with-named-character-references"><code>&amp;</code>と<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code>、<code>&#39;</code>は名前文字参照を使ってエスケープする</a></li>
+									<li><a href="#escape-amp-lt-gt-quot-and-apos-with-named-character-references"><code>&amp;</code>と<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code>、<code>&#39;</code>は名前文字参照を使ってエスケープする</a></li>
 									<li><a href="#use-numeric-character-references-for-control-or-invisible-characters">制御文字や不可視文字は数値文字参照を使う</a></li>
 									<li><a href="#put-white-spaces-around-comment-contents">コメントではその内容の前後へ空白文字を置く</a></li>
 									<li><a href="#dont-omit-closing-tag">終了タグを省略しない</a></li>
@@ -36,7 +36,7 @@
 									<li><a href="#omit-boolean-attribute-value">真偽値を取る属性の値は省略する</a></li>
 									<li><a href="#omit-namespaces">名前空間は省略する</a></li>
 									<li><a href="#dont-use-xml-attributes">XML属性は使わない</a></li>
-									<li><a href="#dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes"><code>data-*</code>とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない</a></li>
+									<li><a href="#dont-mix-data-microdata-and-rdfa-lite-attributes-with-common-attributes"><code>data-*</code>とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない</a></li>
 									<li><a href="#prefer-default-implicit-aria-semantics">デフォルトの暗黙のARIAセマンティックスを尊重する</a></li>
 							</ol>
 						</li>
@@ -44,7 +44,7 @@
 							<ol>
 									<li><a href="#add-lang-attribute"><code>lang</code>属性を追加する</a></li>
 									<li><a href="#keep-lang-attribute-value-as-short-as-possible"><code>lang</code>属性の値はできる限り短くする</a></li>
-									<li><a href="#avoid-data--as-much-as-possible">できる限り<code>data-*</code>属性は避ける</a></li>
+									<li><a href="#avoid-data-as-much-as-possible">できる限り<code>data-*</code>属性は避ける</a></li>
 							</ol>
 						</li>
 						<li><a href="#document-metadata">文書メタデータ</a>
@@ -97,7 +97,7 @@
 									<li><a href="#add-title-attribute-to-abbr-element"><code>abbr</code>要素へ<code>title</code>属性を追加する</a></li>
 									<li><a href="#markup-ruby-element-verbosely"><code>ruby</code>要素は冗長にマークアップする</a></li>
 									<li><a href="#add-datetime-attribute-to-non-machine-readable-time-element">機械的に解釈可能でない<code>time</code>要素では<code>datetime</code>属性を追加する</a></li>
-									<li><a href="#specify-code-language-with-class-attribute-prefixed-with-language-">コードの言語は<code>class</code>属性で<code>language-</code>で始めることで指定する</a></li>
+									<li><a href="#specify-code-language-with-class-attribute-prefixed-with-language">コードの言語は<code>class</code>属性で<code>language-</code>で始めることで指定する</a></li>
 									<li><a href="#keep-kbd-element-as-simple-as-possible">できる限り<code>kbd</code>要素はシンプルにする</a></li>
 									<li><a href="#avoid-span-element-as-much-as-possible">できる限り<code>span</code>要素は使わない</a></li>
 									<li><a href="#break-after-br-element"><code>br</code>要素の後ろでは改行する</a></li>
@@ -220,7 +220,7 @@
 <p>伝統的に名前文字参照（HTML 4.01仕様では文字実体参照）を使っていたような文字もそのまま書いて問題ありません。良い例で挙げたのようにコピーライト・マークや登録商標マークもそのまま書けば、読みやすいHTML文書になるはずです。</p>
 
 						</section>
-						<section id="escape-----and--with-named-character-references">
+						<section id="escape-amp-lt-gt-quot-and-apos-with-named-character-references">
 							<h2><code>&amp;</code>と<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code>、<code>&#39;</code>は名前文字参照を使ってエスケープする</h2>
 
 							<p>バグのないHTML文書を作成するためには、これらの文字は常にエスケープされるべきです。</p>
@@ -453,7 +453,7 @@
 <p>HTML文書を書き、<a href="#omit-namespaces">名前空間を使わないと</a>、事実上<code>xml:lang</code>属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。</p>
 
 						</section>
-						<section id="dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes">
+						<section id="dont-mix-data-microdata-and-rdfa-lite-attributes-with-common-attributes">
 							<h2><code>data-*</code>とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない</h2>
 
 							<p>タグ文字列はとても複雑になりえます。こういった簡単なルールによってタグ文字列を読みやすくできるでしょう。</p>
@@ -528,7 +528,7 @@
 &lt;/html&gt;</code></pre><p>つまり<em>日本語</em>である時点で<em>日本で話されている</em>ことが自明なため、このように<code>JP</code>という国や地域を示すサブタグは不要です。言語タグはできうる限り短くするべきであると<a href="http://tools.ietf.org/html/rfc5646">その仕様（RFC5646）</a>にも明記されていることももちろんありますが、未知の言語があたかも様々な地域で使われていると誤解を与えないためにも、できるだけ短く書くべきです。</p>
 
 						</section>
-						<section id="avoid-data--as-much-as-possible">
+						<section id="avoid-data-as-much-as-possible">
 							<h2>できる限り<code>data-*</code>属性は避ける</h2>
 
 							<p>適切な属性は、ブラウザーがうまく扱ってくれるかもしれません。</p>
@@ -1188,7 +1188,7 @@ function isArray(o) {
 <p>既定のフォーマットは俗にW3CDTFと呼ばれている形式に近いものです。ただし年なしの月日が許可されていたり、時刻のみが許可されていたり、上位互換で自然文向けのフォーマットになっています。いずれにせよ、日時を表現するには、それなりに書きやすくパースしやすいものです。しかし読みやすいとは言えない程度に素っ気ないものでもあります。そのため良い例で挙げたように（ロケールに応じた）わかりやすそうな表現で日時を提供し、<code>datetime</code>属性で正確な日時を提供すると、公平に日時を伝えられるでしょう。</p>
 
 						</section>
-						<section id="specify-code-language-with-class-attribute-prefixed-with-language-">
+						<section id="specify-code-language-with-class-attribute-prefixed-with-language">
 							<h2>コードの言語は<code>class</code>属性で<code>language-</code>で始めることで指定する</h2>
 
 							<p>これは正式な方法ではありませんが、仕様では言及されています。</p>

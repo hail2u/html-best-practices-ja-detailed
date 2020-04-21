@@ -8,7 +8,7 @@
     - [置き換えられるべきまたは旧式のDOCTYPEを使わない](#dont-use-legacy-or-obsolete-doctype)
     - [XML宣言を使用しない](#dont-use-xml-declaration)
     - [文字参照はできる限り使わない](#dont-use-character-references-as-much-as-possible)
-    - [`&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする](#escape-----and--with-named-character-references)
+    - [`&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする](#escape-amp-lt-gt-quot-and-apos-with-named-character-references)
     - [制御文字や不可視文字は数値文字参照を使う](#use-numeric-character-references-for-control-or-invisible-characters)
     - [コメントではその内容の前後へ空白文字を置く](#put-white-spaces-around-comment-contents)
     - [終了タグを省略しない](#dont-omit-closing-tag)
@@ -20,12 +20,12 @@
     - [真偽値を取る属性の値は省略する](#omit-boolean-attribute-value)
     - [名前空間は省略する](#omit-namespaces)
     - [XML属性は使わない](#dont-use-xml-attributes)
-    - [`data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない](#dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes)
+    - [`data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない](#dont-mix-data-microdata-and-rdfa-lite-attributes-with-common-attributes)
     - [デフォルトの暗黙のARIAセマンティックスを尊重する](#prefer-default-implicit-aria-semantics)
 - 文書要素
     - [`lang`属性を追加する](#add-lang-attribute)
     - [`lang`属性の値はできる限り短くする](#keep-lang-attribute-value-as-short-as-possible)
-    - [できる限り`data-*`属性は避ける](#avoid-data--as-much-as-possible)
+    - [できる限り`data-*`属性は避ける](#avoid-data-as-much-as-possible)
 - 文書メタデータ
     - [`title`要素を書く](#add-title-element)
     - [`base`要素を使わない](#dont-use-base-element)
@@ -66,7 +66,7 @@
     - [`abbr`要素へ`title`属性を追加する](#add-title-attribute-to-abbr-element)
     - [`ruby`要素は冗長にマークアップする](#markup-ruby-element-verbosely)
     - [機械的に解釈可能でない`time`要素では`datetime`属性を追加する](#add-datetime-attribute-to-non-machine-readable-time-element)
-    - [コードの言語は`class`属性で`language-`で始めることで指定する](#specify-code-language-with-class-attribute-prefixed-with-language-)
+    - [コードの言語は`class`属性で`language-`で始めることで指定する](#specify-code-language-with-class-attribute-prefixed-with-language)
     - [できる限り`kbd`要素はシンプルにする](#keep-kbd-element-as-simple-as-possible)
     - [できる限り`span`要素は使わない](#avoid-span-element-as-much-as-possible)
     - [`br`要素の後ろでは改行する](#break-after-br-element)
@@ -200,7 +200,7 @@ HTML 4.01では、HTML文書で利用している文字コードで表現でき�
 伝統的に名前文字参照（HTML 4.01仕様では文字実体参照）を使っていたような文字もそのまま書いて問題ありません。良い例で挙げたのようにコピーライト・マークや登録商標マークもそのまま書けば、読みやすいHTML文書になるはずです。
 
 
-### `&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする<span id="escape-----and--with-named-character-references"></span>
+### `&`と`<`、`>`、`"`、`'`は名前文字参照を使ってエスケープする<span id="escape-amp-lt-gt-quot-and-apos-with-named-character-references"></span>
 
 バグのないHTML文書を作成するためには、これらの文字は常にエスケープされるべきです。
 
@@ -513,7 +513,7 @@ XHTML 1.xでは、必要に応じてXML属性も併記する必要がありま�
 HTML文書を書き、[名前空間を使わないと](#omit-namespaces)、事実上`xml:lang`属性以外にXML属性が使われそうな状況はありません。良い例で挙げたように書くべきです。
 
 
-### `data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない<span id="dont-mix-data--microdata-and-rdfa-lite-attributes-with-common-attributes"></span>
+### `data-*`とMicrodata、RDFa Lite用の属性と通常の属性を混ぜない<span id="dont-mix-data-microdata-and-rdfa-lite-attributes-with-common-attributes"></span>
 
 タグ文字列はとても複雑になりえます。こういった簡単なルールによってタグ文字列を読みやすくできるでしょう。
 
@@ -627,7 +627,7 @@ HTML文書はどのような言語でも書くことができます。もちろ�
 つまり*日本語*である時点で*日本で話されている*ことが自明なため、このように`JP`という国や地域を示すサブタグは不要です。言語タグはできうる限り短くするべきであると[その仕様（RFC5646）](http://tools.ietf.org/html/rfc5646)にも明記されていることももちろんありますが、未知の言語があたかも様々な地域で使われていると誤解を与えないためにも、できるだけ短く書くべきです。
 
 
-### できる限り`data-*`属性は避ける<span id="avoid-data--as-much-as-possible"></span>
+### できる限り`data-*`属性は避ける<span id="avoid-data-as-much-as-possible"></span>
 
 適切な属性は、ブラウザーがうまく扱ってくれるかもしれません。
 
@@ -1613,7 +1613,7 @@ HTML 4.01時代には俗に*物理要素*と言われていた要素達は、現
 既定のフォーマットは俗にW3CDTFと呼ばれている形式に近いものです。ただし年なしの月日が許可されていたり、時刻のみが許可されていたり、上位互換で自然文向けのフォーマットになっています。いずれにせよ、日時を表現するには、それなりに書きやすくパースしやすいものです。しかし読みやすいとは言えない程度に素っ気ないものでもあります。そのため良い例で挙げたように（ロケールに応じた）わかりやすそうな表現で日時を提供し、`datetime`属性で正確な日時を提供すると、公平に日時を伝えられるでしょう。
 
 
-### コードの言語は`class`属性で`language-`で始めることで指定する<span id="specify-code-language-with-class-attribute-prefixed-with-language-"></span>
+### コードの言語は`class`属性で`language-`で始めることで指定する<span id="specify-code-language-with-class-attribute-prefixed-with-language"></span>
 
 これは正式な方法ではありませんが、仕様では言及されています。
 

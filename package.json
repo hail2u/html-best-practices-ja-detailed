@@ -1,7 +1,7 @@
 {
   "name": "html-best-practices-ja-detailed",
   "version": "0.0.0",
-  "description": "保守しやすく、規模に依存しないHTML文書のために",
+  "description": "HTML Best Pracetices in Japanese with Detailed Explanations",
   "main": "index.js",
   "scripts": {
 		"build": "node index.js",

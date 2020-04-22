@@ -7,14 +7,15 @@ import { readJSONFile } from "./lib/json-file.js";
 const readPractice = async (id) => {
 	const md = await fs.readFile(`practices/${id}.md`, "utf8");
 	const [title, ...body] = md.split("\n");
-	const strBody = body.join("\n").trim();
-	const strTitle = title.replace(/^# /, "");
-	return {
-		body: marked(strBody),
+	const practice = {
+		body: body.join("\n").trim(),
 		id: id,
-		strBody: strBody,
-		strTitle: strTitle,
-		title: marked(strTitle)
+		title: title.replace(/^# /, "")
+	};
+	return {
+		...practice,
+		renderedBody: marked(practice.body),
+		renderedTitle: marked(practice.title)
 			.trim()
 			.replace(/^<p>(.*?)<\/p>$/, "$1")
 	};
@@ -22,8 +23,7 @@ const readPractice = async (id) => {
 
 const extendSection = async (section) => ({
 	...section,
-	practices: await Promise.all(section.practices.map(readPractice)),
-	strTitle: section.title
+	practices: await Promise.all(section.practices.map(readPractice))
 });
 
 const render = async (data, { extra = {}, dest, src }) => {

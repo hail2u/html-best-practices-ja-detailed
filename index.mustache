@@ -19,10 +19,10 @@
 			<nav>
 				<ol>
 					{{#sections}}
-						<li><a href="#{{id}}">{{{title}}}</a>
+						<li><a href="#{{id}}">{{title}}</a>
 							<ol>
 								{{#practices}}
-									<li><a href="#{{id}}">{{{title}}}</a></li>
+									<li><a href="#{{id}}">{{{renderedTitle}}}</a></li>
 								{{/practices}}
 							</ol>
 						</li>
@@ -38,9 +38,9 @@
 
 					{{#practices}}
 						<section id="{{id}}">
-							<h2>{{{title}}}</h2>
+							<h2>{{{renderedTitle}}}</h2>
 
-							{{{body}}}
+							{{{renderedBody}}}
 						</section>
 					{{/practices}}
 				</section>

@@ -1,5 +1,5 @@
 import { escapeCharacters } from "./lib/character-reference.js";
-import { promises as fs } from "fs";
+import fs from "fs/promises";
 import marked from "marked";
 import mustache from "mustache";
 import { readJSONFile } from "./lib/json-file.js";

@@ -103,6 +103,7 @@
     - [一貫した量でインデントする](#indent-consistently)
     - [内部リンクには絶対パスを使う](#use-absolute-path-for-internal-links)
     - [外部リソースにはプロトコル相対URLを使わない](#dont-use-protocol-relative-url-for-external-resources)
+- [ライセンス](#license)
 
 
 ## 一般
@@ -2369,6 +2370,6 @@ HTML文書に書かれたURLは、そのHTML文書のURLを元に解決される
 
 
 
-## ライセンス
+## ライセンス<span id="license"></span>
 
 [CC0](http://creativecommons.org/publicdomain/zero/1.0/)

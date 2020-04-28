@@ -26,7 +26,7 @@ const extendSection = async (section) => ({
 	practices: await Promise.all(section.practices.map(readPractice))
 });
 
-const render = async (data, { extra = {}, dest, src }) => {
+const build = async (data, { extra = {}, dest, src }) => {
 	const template = await fs.readFile(src, "utf8");
 	const rendered = mustache.render(template, {
 		...data,
@@ -38,7 +38,7 @@ const render = async (data, { extra = {}, dest, src }) => {
 const main = async () => {
 	const data = await readJSONFile("index.json");
 	const sections = await Promise.all(data.sections.map(extendSection));
-	await Promise.all(data.files.map(render.bind(null, {
+	await Promise.all(data.files.map(build.bind(null, {
 		...data,
 		sections: sections
 	})));

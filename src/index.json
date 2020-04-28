@@ -3,11 +3,11 @@
 	"files": [
 		{
 			"dest": "README.md",
-			"src": "readme.mustache"
+			"src": "./src/readme.mustache"
 		},
 		{
 			"dest": "index.html",
-			"src": "index.mustache"
+			"src": "./src/index.mustache"
 		}
 	],
 	"license": {

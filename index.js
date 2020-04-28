@@ -5,7 +5,7 @@ import mustache from "mustache";
 import { readJSONFile } from "./lib/json-file.js";
 
 const readPractice = async (id) => {
-	const md = await fs.readFile(`practices/${id}.md`, "utf8");
+	const md = await fs.readFile(`./src/practices/${id}.md`, "utf8");
 	const [title, ...body] = md.split("\n");
 	const practice = {
 		body: body.join("\n").trim(),
@@ -36,7 +36,7 @@ const build = async (data, { extra = {}, dest, src }) => {
 };
 
 const main = async () => {
-	const data = await readJSONFile("index.json");
+	const data = await readJSONFile("./src/index.json");
 	const sections = await Promise.all(data.sections.map(extendSection));
 	await Promise.all(data.files.map(build.bind(null, {
 		...data,

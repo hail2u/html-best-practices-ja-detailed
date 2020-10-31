@@ -18,8 +18,8 @@
   },
   "homepage": "https://hail2u.net/documents/html-best-practices.html",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "marked": "^0.8.2",
+    "eslint": "^7.12.1",
+    "marked": "^1.2.2",
     "mustache": "^4.0.1"
   },
   "private": true,

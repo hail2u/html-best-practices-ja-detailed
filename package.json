@@ -19,7 +19,7 @@
   "homepage": "https://hail2u.net/documents/html-best-practices.html",
   "devDependencies": {
     "eslint": "^7.12.1",
-    "marked": "^1.2.2",
+    "marked": "^2.0.0",
     "mustache": "^4.0.1"
   },
   "private": true,

@@ -18,9 +18,9 @@
   },
   "homepage": "https://hail2u.net/documents/html-best-practices.html",
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "marked": "^2.0.0",
-    "mustache": "^4.0.1"
+    "eslint": "7.32.0",
+    "marked": "4.0.10",
+    "mustache": "4.2.0"
   },
   "private": true,
   "type": "module"
